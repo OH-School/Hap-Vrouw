@@ -14,10 +14,12 @@ public class Game extends YaegerGame {
         launch(args);
     }
 
+    private int window = 3;
+
     @Override
     public void setupGame() {
         setGameTitle("HapVrouw");
-        setSize(new Size(608, 544));
+        setSize(new Size(304 * window, 240 * window));
     }
 
     @Override

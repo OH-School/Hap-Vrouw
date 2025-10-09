@@ -23,7 +23,7 @@ public class GameLevel extends DynamicScene implements TileMapContainer {
 
     @Override
     public void setupEntities() {
-        HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(getWidth() / 2 - 16, getHeight() / 2  + 48));
+        HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(getWidth() / 2, getHeight() / 2  + 96));
         addEntity(hapVrouw);
 
     }

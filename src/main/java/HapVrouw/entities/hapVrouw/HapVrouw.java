@@ -15,7 +15,7 @@ import HapVrouw.Game;
 import java.util.List;
 import java.util.Set;
 
-public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneBorderCrossingWatcher, Collided, Collider {
+public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneBorderCrossingWatcher, Collided {
 
     private Game game;
     private float speed = 3f;
@@ -46,7 +46,7 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
                 setAnchorLocationX(getSceneWidth());
                 break;
             case RIGHT:
-                setAnchorLocationX(-32);
+                setAnchorLocationX(-16);
                 break;
         }
     }
