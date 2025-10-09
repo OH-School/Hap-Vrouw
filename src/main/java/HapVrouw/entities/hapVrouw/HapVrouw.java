@@ -2,6 +2,7 @@ package HapVrouw.entities.hapVrouw;
 
 import HapVrouw.entities.tileMap.Muur;
 import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
@@ -17,14 +18,14 @@ import java.util.Set;
 public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneBorderCrossingWatcher, Collided, Collider {
 
     private Game game;
-    private float speed = 2f;
+    private float speed = 3f;
     private Coordinate2D previousLocation;
 
     public HapVrouw(Coordinate2D initialLocation) {
-        super("sprites/hapvrouw/hapvrouw.png", initialLocation, 8, 5);
+        super("sprites/hapvrouw/hapvrouw.png", initialLocation, (new Size(28)), 8, 5);
         this.game = game;
-        setAutoCycle(120, 0);
         previousLocation = getAnchorLocation();
+        //setAutoCycle(120, 0);
     }
 
     @Override
