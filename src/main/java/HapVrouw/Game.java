@@ -17,7 +17,7 @@ public class Game extends YaegerGame {
     @Override
     public void setupGame() {
         setGameTitle("HapVrouw");
-        setSize(new Size(800, 600));
+        setSize(new Size(608, 544));
     }
 
     @Override
