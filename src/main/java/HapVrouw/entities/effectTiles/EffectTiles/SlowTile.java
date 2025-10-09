@@ -13,7 +13,7 @@ public class SlowTile extends EffectTile {
 
     @Override
     public void action(HapVrouw hapVrouw) {
-        hapVrouw.setPlayerSpeed(hapVrouw.getStandardSpeed() * 0.1f);
+        hapVrouw.setPlayerSpeed(hapVrouw.getStandardSpeed() * 0.7f);
         remove();
     }
 }
