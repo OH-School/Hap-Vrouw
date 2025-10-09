@@ -14,6 +14,7 @@ public class TitleScene extends StaticScene {
     public TitleScene(Game game) {
         this.game = game;
     }
+
     @Override
     public void setupScene() {
         setBackgroundImage("backgrounds/background1.jpg");
@@ -25,6 +26,5 @@ public class TitleScene extends StaticScene {
         addEntity(startButton);
         Button quitButton = new QuitButton(new Coordinate2D(getWidth() / 2, getHeight() / 2 + 100), "Quit", game);
         addEntity(quitButton);
-
     }
 }

@@ -4,10 +4,11 @@ module Hap.Vrouw {
     requires java.desktop;
 
     exports HapVrouw;
+    exports HapVrouw.entities.tileMap;
 
     //opens audio;
     opens backgrounds;
     //opens sprites;
-    //exports HapVrouw.entities.buttons;
+    exports HapVrouw.entities.buttons;
     exports HapVrouw.scenes;
 }
