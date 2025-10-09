@@ -9,6 +9,7 @@ module Hap.Vrouw {
     //opens audio;
     opens backgrounds;
     opens sprites.hapvrouw;
+    opens sprites.action;
     exports HapVrouw.entities.buttons;
     exports HapVrouw.scenes;
 }
