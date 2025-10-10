@@ -17,8 +17,8 @@ import java.util.Set;
 
 public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneBorderCrossingWatcher, Collided {
 
-    private float speed = 3f;
     private float standardSpeed = 3f;
+    private float speed = standardSpeed;
     private Coordinate2D previousLocation;
 
     public HapVrouw(Coordinate2D initialLocation) {
