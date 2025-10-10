@@ -29,9 +29,9 @@ public class GameLevel extends DynamicScene implements TileMapContainer {
     public void setupEntities() {
         HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(getWidth() / 2, getHeight() / 2  + 96));
         addEntity(hapVrouw);
-        EffectTile speed = new SpeedTile(new Coordinate2D(64, 64), new Size(64));
+        EffectTile speed = new SpeedTile(new Coordinate2D(64, 64), new Size(48));
         addEntity(speed);
-        EffectTile slow = new SlowTile(new Coordinate2D(128, 128), new Size(64));
+        EffectTile slow = new SlowTile(new Coordinate2D(126, 128), new Size(48));
         addEntity(slow);
 
     }
