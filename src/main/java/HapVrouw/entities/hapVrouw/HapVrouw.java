@@ -1,5 +1,6 @@
 package HapVrouw.entities.hapVrouw;
 
+import HapVrouw.entities.effectTiles.EffectTile;
 import HapVrouw.entities.tileMap.Muur;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
@@ -10,22 +11,19 @@ import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import com.github.hanyaeger.api.userinput.KeyListener;
 import javafx.scene.input.KeyCode;
-import HapVrouw.Game;
 
 import java.util.List;
 import java.util.Set;
 
 public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneBorderCrossingWatcher, Collided {
 
-    private Game game;
-    private float speed = 3f;
+    private float standardSpeed = 3f;
+    private float speed = standardSpeed;
     private Coordinate2D previousLocation;
 
     public HapVrouw(Coordinate2D initialLocation) {
-        super("sprites/hapvrouw/hapvrouw.png", initialLocation, (new Size(28)), 8, 5);
-        this.game = game;
+        super("sprites/hapvrouw/hapvrouw.png", initialLocation, new Size(28), 8, 5);
         previousLocation = getAnchorLocation();
-        //setAutoCycle(120, 0);
     }
 
     @Override
@@ -35,6 +33,9 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
                 setAnchorLocation(previousLocation);
                 setSpeed(0);
                 break;
+            }
+            if (collider instanceof EffectTile) {
+                ((EffectTile) collider).action(this);
             }
         }
     }
@@ -47,6 +48,12 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
                 break;
             case RIGHT:
                 setAnchorLocationX(-16);
+                break;
+            case TOP:
+                setAnchorLocationY(getSceneHeight());
+                break;
+            case BOTTOM:
+                setAnchorLocationY(-16);
                 break;
         }
     }
@@ -70,5 +77,16 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
         } else {
             setSpeed(0);
         }
+    }
+
+    // 👇 Deze setter gebruiken we in SpeedTile
+    public void setPlayerSpeed(float newSpeed) {
+        this.speed = newSpeed;
+        System.out.println(speed);
+    }
+
+    // 👇 Getter voor als je de huidige snelheid nodig hebt
+    public float getStandardSpeed() {
+        return this.standardSpeed;
     }
 }
