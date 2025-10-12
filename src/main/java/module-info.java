@@ -10,6 +10,7 @@ module Hap.Vrouw {
     opens backgrounds;
     opens sprites.hapvrouw;
     opens sprites.action;
+    opens sprites.ghosts;
     exports HapVrouw.entities.buttons;
     exports HapVrouw.scenes;
 }

@@ -1,12 +1,16 @@
 package HapVrouw.scenes;
 
 import HapVrouw.Game;
+import HapVrouw.entities.effectTiles.EffectTile;
+import HapVrouw.entities.effectTiles.EffectTiles.SlowTile;
+import HapVrouw.entities.effectTiles.EffectTiles.SpeedTile;
 import HapVrouw.entities.ghosts.GhostOranje;
 import HapVrouw.entities.ghosts.GhostPaars;
 import HapVrouw.entities.ghosts.GhostRood;
 import HapVrouw.entities.hapVrouw.HapVrouw;
 import HapVrouw.entities.tileMap.MuurTileMap;
 import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.scenes.DynamicScene;
 import com.github.hanyaeger.api.scenes.TileMapContainer;
 import javafx.scene.paint.Color;
@@ -42,6 +46,10 @@ public class GameLevel extends DynamicScene implements TileMapContainer {
         addEntity(ghostOra);
         GhostOranje ghostOr = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
         addEntity(ghostOr);
+        EffectTile speed = new SpeedTile(new Coordinate2D(49, 46), new Size(40));
+        addEntity(speed);
+        EffectTile slow = new SlowTile(new Coordinate2D(145, 137), new Size(40));
+        addEntity(slow);
 
 
 

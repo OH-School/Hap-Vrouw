@@ -76,7 +76,7 @@ public class Ghosts extends DynamicSpriteEntity implements Collided, SceneBorder
 
         currentDirection = newDirection;
         setDirection(currentDirection);
-        System.out.println("Nieuwe richting na botsing: " + currentDirection);
+//        System.out.println("Nieuwe richting na botsing: " + currentDirection);
     }
 
     @Override
