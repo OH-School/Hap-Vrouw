@@ -42,6 +42,8 @@ public class GameLevel extends DynamicScene implements TileMapContainer {
         addEntity(ghostOra);
         GhostOranje ghostOr = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
         addEntity(ghostOr);
+        GhostOranje ghostOrss = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
+        addEntity(ghostOrss);
 
 
 
