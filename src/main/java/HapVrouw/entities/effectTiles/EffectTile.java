@@ -7,10 +7,22 @@ import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.impl.SpriteEntity;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public abstract class EffectTile extends SpriteEntity implements Collider {
 
     protected EffectTile(String resource, Coordinate2D initialPosition, Size size) {
         super(resource, initialPosition, size);
+
+        // Despawn na 5 seconden
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                remove();
+            }
+        }, 5000);
     }
 
     public abstract void action(HapVrouw hapVrouw);
