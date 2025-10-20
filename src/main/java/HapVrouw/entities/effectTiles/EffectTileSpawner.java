@@ -8,8 +8,6 @@ import com.github.hanyaeger.api.entities.EntitySpawner;
 
 import java.util.Random;
 
-import static javafx.scene.input.KeyCode.R;
-
 public class EffectTileSpawner extends EntitySpawner {
 
     private int x;
