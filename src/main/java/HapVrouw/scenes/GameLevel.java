@@ -14,7 +14,7 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
 
     private Game game;
     private int x = 48;
-    private int y = 45;
+    private int y = 44;
 
     public GameLevel(Game game) {
         this.game = game;
