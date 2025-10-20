@@ -18,7 +18,7 @@ public class Ghosts extends DynamicSpriteEntity implements Collided, SceneBorder
     private Random random = new Random();
     private int[] directions = {0, 90, 180, 270};
     private double currentDirection;
-    private final double STEP_BACK_DISTANCE = 5.0;
+    private final double STEP_BACK_DISTANCE = 50.0;
     private boolean isColliding = false;
     private int collisionCooldown = 0;
 

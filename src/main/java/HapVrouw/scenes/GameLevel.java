@@ -61,6 +61,6 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
 
     @Override
     public void setupEntitySpawners() {
-        addEntitySpawner(new EffectTileSpawner(5, x, y));
+        addEntitySpawner(new EffectTileSpawner(50000, x, y));
     }
 }
