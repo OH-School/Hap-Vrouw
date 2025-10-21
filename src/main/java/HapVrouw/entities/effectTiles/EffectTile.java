@@ -17,12 +17,16 @@ public abstract class EffectTile extends SpriteEntity implements Collider {
 
         // Despawn na 5 seconden
         Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
+        TimerTask Task = new TimerTask() {
             @Override
             public void run() {
                 remove();
+                timer.cancel();
             }
-        }, 5000);
+        };
+
+        timer.schedule(Task, 5000);
+
     }
 
     public abstract void action(HapVrouw hapVrouw);
