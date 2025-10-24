@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Ghosts extends DynamicSpriteEntity implements Collided, SceneBorderCrossingWatcher, Collider {
+public class Ghosts extends DynamicSpriteEntity implements Collided, SceneBorderCrossingWatcher, Collider{
 
     private Random random = new Random();
     private int[] directions = {0, 90, 180, 270};
@@ -40,6 +40,7 @@ public class Ghosts extends DynamicSpriteEntity implements Collided, SceneBorder
         for (Collider collider : list) {
             if (collider instanceof Muur && !isColliding) {
                 isColliding = true;
+                System.out.println(((Muur) collider).angleTo(this));
                 stepBack();
                 chooseValidDirection();
                 collisionCooldown = 1;
