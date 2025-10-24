@@ -18,6 +18,7 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
     private Game game;
     private int x = 48;
     private int y = 45;
+    private MuurTileMap muurTileMap;
 
     public GameLevel(Game game) {
         this.game = game;
@@ -56,11 +57,12 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
 
     @Override
     public void setupTileMaps() {
-        addTileMap(new MuurTileMap());
+        muurTileMap = new MuurTileMap();
+        addTileMap(muurTileMap);
     }
 
     @Override
     public void setupEntitySpawners() {
-        addEntitySpawner(new EffectTileSpawner(50000, x, y));
+        addEntitySpawner(new EffectTileSpawner(5000, x, y, muurTileMap));
     }
 }
