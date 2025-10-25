@@ -5,6 +5,7 @@ import HapVrouw.entities.effectTiles.EffectTileSpawner;
 import HapVrouw.entities.ghosts.GhostOranje;
 import HapVrouw.entities.ghosts.GhostPaars;
 import HapVrouw.entities.ghosts.GhostRood;
+import HapVrouw.entities.ghosts.Ghosts;
 import HapVrouw.entities.hapVrouw.HapVrouw;
 import HapVrouw.entities.tileMap.MuurTileMap;
 import com.github.hanyaeger.api.Coordinate2D;
@@ -37,21 +38,21 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
     public void setupEntities() {
         HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(getWidth() / 2, getHeight() / 2  + 96));
         addEntity(hapVrouw);
-        GhostPaars ghostPaars = new GhostPaars(new Coordinate2D(getWidth() / 2 , getHeight() / 2 -40 ));
+        Ghosts ghostPaars = new GhostPaars(new Coordinate2D(getWidth() / 2 , getHeight() / 2 -40 ));
         addEntity(ghostPaars);
-        GhostRood ghostrood = new GhostRood(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
+        Ghosts ghostrood = new GhostRood(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
         addEntity(ghostrood);
-        GhostOranje ghostOranje = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
+        Ghosts ghostOranje = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
         addEntity(ghostOranje);
-        GhostOranje ghostOranj = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
+        Ghosts ghostOranj = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
         addEntity(ghostOranj);
-        GhostOranje ghostOran = new GhostOranje(new Coordinate2D(getWidth() / 2 -20 , getHeight() / 2 -40 ));
+        Ghosts ghostOran = new GhostOranje(new Coordinate2D(getWidth() / 2 -20 , getHeight() / 2 -40 ));
         addEntity(ghostOran);
-        GhostOranje ghostOra = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
+        Ghosts ghostOra = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
         addEntity(ghostOra);
-        GhostOranje ghostOr = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
+        Ghosts ghostOr = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
         addEntity(ghostOr);
-        GhostOranje ghostOrss = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
+        Ghosts ghostOrss = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
         addEntity(ghostOrss);
     }
 
