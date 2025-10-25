@@ -1,8 +1,12 @@
 package HapVrouw.entities.hapVrouw;
 
+import HapVrouw.entities.Text.HealthText;
+import HapVrouw.entities.Text.ScoreText;
 import HapVrouw.entities.effectTiles.EffectTile;
+import HapVrouw.entities.ghosts.GhostOranje;
 import HapVrouw.entities.ghosts.GhostRood;
 import HapVrouw.entities.tileMap.Muur;
+import HapVrouw.scenes.GameLevel;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collided;
@@ -21,9 +25,20 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
     private float standardSpeed = 3f;
     private float speed = standardSpeed;
     private Coordinate2D previousLocation;
+    private final int StartLocationX = 450;
+    private final int StartLocationY = 470;
+    private HealthText healthText;
+    private int heath = 3;
+    private ScoreText scoreText;
+    private int score = 0;
 
-    public HapVrouw(Coordinate2D initialLocation) {
+
+    public HapVrouw(Coordinate2D initialLocation, HealthText healthText, ScoreText scoreText) {
         super("sprites/hapvrouw/hapvrouw.png", initialLocation, new Size(28), 8, 5);
+        this.healthText = healthText;
+        healthText.setHealthText(heath);
+        this.scoreText = scoreText;
+        scoreText.setScoreText(score);
         previousLocation = getAnchorLocation();
     }
 
@@ -37,6 +52,18 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
             }
             if (collider instanceof EffectTile) {
                 ((EffectTile) collider).action(this);
+            }
+
+            if (collider instanceof GhostRood) {
+              heath--;
+              healthText.setHealthText(heath);
+              setAnchorLocation(new Coordinate2D(StartLocationX, StartLocationY));
+            }
+
+            if (collider instanceof GhostOranje) {
+                score = score - 100;
+                scoreText.setScoreText(score);
+                setAnchorLocation(new Coordinate2D(StartLocationX, StartLocationY));
             }
 
         }

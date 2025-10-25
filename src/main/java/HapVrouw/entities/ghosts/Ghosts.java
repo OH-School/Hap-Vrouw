@@ -25,7 +25,7 @@ public class Ghosts extends DynamicSpriteEntity implements Collided, SceneBorder
 
     protected Ghosts(String resource, Coordinate2D location) {
         super(resource, location, new Size(43), 3, 5);
-        setSpeed(0.5);
+        setSpeed(0.2);
         System.out.println(location);
         currentDirection = directions[random.nextInt(4)];
         setDirection(currentDirection);
