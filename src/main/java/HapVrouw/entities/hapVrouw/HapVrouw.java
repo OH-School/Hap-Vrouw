@@ -1,6 +1,7 @@
 package HapVrouw.entities.hapVrouw;
 
 import HapVrouw.entities.effectTiles.EffectTile;
+import HapVrouw.entities.ghosts.GhostRood;
 import HapVrouw.entities.tileMap.Muur;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
@@ -37,6 +38,7 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
             if (collider instanceof EffectTile) {
                 ((EffectTile) collider).action(this);
             }
+
         }
     }
 

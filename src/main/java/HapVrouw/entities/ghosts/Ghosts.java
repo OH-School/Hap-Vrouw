@@ -1,5 +1,6 @@
 package HapVrouw.entities.ghosts;
 
+import HapVrouw.entities.hapVrouw.HapVrouw;
 import HapVrouw.entities.tileMap.Muur;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
@@ -47,6 +48,8 @@ public class Ghosts extends DynamicSpriteEntity implements Collided, SceneBorder
                 isColliding = false;
                 break;
             }
+
+
         }
 
     }
