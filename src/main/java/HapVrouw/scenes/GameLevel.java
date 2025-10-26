@@ -41,10 +41,10 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
     public void setupEntities() {
         Ghosts ghostPaars = new GhostPaars(new Coordinate2D(getWidth() / 2 , getHeight() / 2 -40 ));
         addEntity(ghostPaars);
-        Ghosts ghostrood = new GhostRood(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
-        addEntity(ghostrood);
-        Ghosts ghostOranje = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
-        addEntity(ghostOranje);
+//        Ghosts ghostrood = new GhostRood(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
+//        addEntity(ghostrood);
+//        Ghosts ghostOranje = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
+//        addEntity(ghostOranje);
         ScoreText score = new ScoreText(new Coordinate2D(404,5));
         addEntity(score);
         HealthText health = new HealthText(new Coordinate2D(100,5));
@@ -71,3 +71,5 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
         addTimer(new Time(timerDisplay));
     }
 }
+
+

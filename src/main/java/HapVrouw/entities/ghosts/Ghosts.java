@@ -19,69 +19,72 @@ public class Ghosts extends DynamicSpriteEntity implements Collided, SceneBorder
     private Random random = new Random();
     private int[] directions = {0, 90, 180, 270};
     private double currentDirection;
-    private final double STEP_BACK_DISTANCE = 5.0;
-    private boolean isColliding = false;
-    private int collisionCooldown = 0;
+
 
     protected Ghosts(String resource, Coordinate2D location) {
-        super(resource, location, new Size(40), 3, 5);
+        super(resource, location, new Size(35), 3, 5);
         setSpeed(0.2);
         System.out.println(location);
         currentDirection = directions[random.nextInt(4)];
-        setDirection(currentDirection);
+        setDirection(270);
     }
 
     @Override
     public void onCollision(List<Collider> list) {
-        if (collisionCooldown > 0) {
-            collisionCooldown--;
-            return;
-        }
+
 
         for (Collider collider : list) {
-            if (collider instanceof Muur && !isColliding) {
-                isColliding = true;
-                System.out.println(((Muur) collider).angleTo(this));
-                stepBack();
-                chooseValidDirection();
-                collisionCooldown = 1;
-                isColliding = false;
-                break;
+            if (collider instanceof Muur) {
+                Muur muur = (Muur) collider;
+
+                // Definieer alle kanten van de muur
+                double muurBovenKant = muur.getAnchorLocation().getY();
+                double muurOnderKant = muur.getAnchorLocation().getY() + muur.getHeight();
+                double muurLinkerKant = muur.getAnchorLocation().getX();
+                double muurRechterKant = muur.getAnchorLocation().getX() + muur.getWidth();
+
+                // En voor de ghost
+                double ghostBovenKant = this.getAnchorLocation().getY();
+                double ghostOnderKant = this.getAnchorLocation().getY() + this.getHeight();
+                double ghostLinkerKant = this.getAnchorLocation().getX();
+                double ghostRechterKant = this.getAnchorLocation().getX() + this.getWidth();
+
+////                 Check botsing met onderkant van muur (ghost komt van onder)
+//                if (ghostBovenKant <= muurOnderKant && ghostBovenKant >= muurBovenKant) {
+//                    setAnchorLocationY(getAnchorLocation().getY() + 4);
+//                    setDirection(directions[random.nextInt(4)]);
+//                    break;
+//                }
+//
+//                // Check botsing met bovenkant van muur (ghost komt van boven)
+//                if (ghostOnderKant >= muurBovenKant && ghostOnderKant <= muurOnderKant) {
+//                    setAnchorLocationY(getAnchorLocation().getY() - 4);
+//                    setDirection(directions[random.nextInt(4)]);
+//                    break;
+//                }
+
+                // Check botsing met rechterkant van muur (ghost komt van rechts)
+                if (ghostLinkerKant <= muurRechterKant && ghostLinkerKant >= muurLinkerKant) {
+                    setAnchorLocationX(getAnchorLocation().getX() + 4);
+                    setDirection(directions[random.nextInt(4)]);
+                    break;
+                }
+
+                // Check botsing met linkerkant van muur (ghost komt van links)
+                if (ghostRechterKant >= muurLinkerKant && ghostRechterKant <= muurRechterKant) {
+                    setAnchorLocationX(getAnchorLocation().getX() - 4);
+                    setDirection(directions[random.nextInt(4)]);
+                    break;
+                }
             }
-
-
         }
 
     }
 
-    private void stepBack() {
-        Coordinate2D currentPos = getAnchorLocation();
 
-        double radians = Math.toRadians(currentDirection + 180);
 
-        double newX = currentPos.getX() + Math.sin(radians) * STEP_BACK_DISTANCE;
-        double newY = currentPos.getY() - Math.cos(radians) * STEP_BACK_DISTANCE;
 
-        setAnchorLocation(new Coordinate2D(newX, newY));
-    }
 
-    private void chooseValidDirection() {
-        List<Double> validDirections = new ArrayList<>();
-
-        double oppositeDirection = (currentDirection + 180) % 360;
-        validDirections.add(oppositeDirection);
-
-        double perpendicular1 = (currentDirection + 90) % 360;
-        double perpendicular2 = (currentDirection + 270) % 360;
-        validDirections.add(perpendicular1);
-        validDirections.add(perpendicular2);
-
-        double newDirection = validDirections.get(random.nextInt(validDirections.size()));
-
-        currentDirection = newDirection;
-        setDirection(currentDirection);
-//        System.out.println("Nieuwe richting na botsing: " + currentDirection);
-    }
 
     @Override
     public void notifyBoundaryCrossing(SceneBorder sceneBorder) {

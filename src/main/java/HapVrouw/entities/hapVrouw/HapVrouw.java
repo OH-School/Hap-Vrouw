@@ -1,5 +1,6 @@
 package HapVrouw.entities.hapVrouw;
 
+import HapVrouw.entities.ghosts.GhostPaars;
 import HapVrouw.entities.text.HealthText;
 import HapVrouw.entities.text.ScoreText;
 import HapVrouw.entities.effectTiles.EffectTile;
@@ -29,6 +30,8 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
     private int heath = 3;
     private ScoreText scoreText;
     private int score = 0;
+    private boolean controlsReversed = false;
+
 
 
     public HapVrouw(Coordinate2D initialLocation, HealthText healthText, ScoreText scoreText) {
@@ -65,6 +68,10 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
                 setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
             }
 
+            if (collider instanceof GhostPaars) {
+                controlsReversed = !controlsReversed; // Toggle: aan/uit wisselen
+            }
+
         }
     }
 
@@ -91,16 +98,16 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
         previousLocation = getAnchorLocation();
 
         if (pressedKeys.contains(KeyCode.LEFT)) {
-            setMotion(speed, 270d);
+            setMotion(speed, controlsReversed ? 90d : 270d);
             setAutoCycle(120, 1);
         } else if (pressedKeys.contains(KeyCode.RIGHT)) {
-            setMotion(speed, 90d);
+            setMotion(speed, controlsReversed ? 270d : 90d);
             setAutoCycle(120, 0);
         } else if (pressedKeys.contains(KeyCode.UP)) {
-            setMotion(speed, 180d);
+            setMotion(speed, controlsReversed ? 0d : 180d);
             setAutoCycle(120, 2);
         } else if (pressedKeys.contains(KeyCode.DOWN)) {
-            setMotion(speed, 0d);
+            setMotion(speed, controlsReversed ? 180d : 0d);
             setAutoCycle(120, 3);
         } else {
             setSpeed(0);
