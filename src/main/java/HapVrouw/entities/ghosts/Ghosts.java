@@ -19,12 +19,12 @@ public class Ghosts extends DynamicSpriteEntity implements Collided, SceneBorder
     private Random random = new Random();
     private int[] directions = {0, 90, 180, 270};
     private double currentDirection;
-    private final double STEP_BACK_DISTANCE = 50.0;
+    private final double STEP_BACK_DISTANCE = 5.0;
     private boolean isColliding = false;
     private int collisionCooldown = 0;
 
     protected Ghosts(String resource, Coordinate2D location) {
-        super(resource, location, new Size(43), 3, 5);
+        super(resource, location, new Size(40), 3, 5);
         setSpeed(0.2);
         System.out.println(location);
         currentDirection = directions[random.nextInt(4)];
