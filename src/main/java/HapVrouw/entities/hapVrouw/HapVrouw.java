@@ -24,8 +24,6 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
     private float standardSpeed = 3f;
     private float speed = standardSpeed;
     private Coordinate2D previousLocation;
-    private final int StartLocationX = 450;
-    private final int StartLocationY = 470;
     private Coordinate2D initialLocation;
     private HealthText healthText;
     private int heath = 3;
