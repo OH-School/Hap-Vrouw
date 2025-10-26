@@ -1,7 +1,7 @@
 package HapVrouw.scenes;
 
 import HapVrouw.Game;
-import HapVrouw.entities.Text.*;
+import HapVrouw.entities.text.*;
 import HapVrouw.entities.effectTiles.EffectTileSpawner;
 import HapVrouw.entities.ghosts.GhostOranje;
 import HapVrouw.entities.ghosts.GhostPaars;
@@ -45,23 +45,13 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
         addEntity(ghostrood);
         Ghosts ghostOranje = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
         addEntity(ghostOranje);
-//        Ghosts ghostOranj = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
-//        addEntity(ghostOranj);
-//        Ghosts ghostOran = new GhostOranje(new Coordinate2D(getWidth() / 2 -20 , getHeight() / 2 -40 ));
-//        addEntity(ghostOran);
-//        Ghosts ghostOra = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
-//        addEntity(ghostOra);
-//        Ghosts ghostOr = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
-//        addEntity(ghostOr);
-//        Ghosts ghostOrss = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
-//        addEntity(ghostOrss);
         ScoreText score = new ScoreText(new Coordinate2D(404,5));
         addEntity(score);
         HealthText health = new HealthText(new Coordinate2D(100,5));
         addEntity(health);
         timerDisplay = new TimerDisplay(new Coordinate2D(708, 5));
         addEntity(timerDisplay);
-        HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(getWidth() / 2, getHeight() / 2  + 110), health, score);
+        HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(x * 9, y * 12), health, score);
         addEntity(hapVrouw);
     }
 

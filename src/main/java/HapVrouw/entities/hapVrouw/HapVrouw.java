@@ -1,12 +1,11 @@
 package HapVrouw.entities.hapVrouw;
 
-import HapVrouw.entities.Text.HealthText;
-import HapVrouw.entities.Text.ScoreText;
+import HapVrouw.entities.text.HealthText;
+import HapVrouw.entities.text.ScoreText;
 import HapVrouw.entities.effectTiles.EffectTile;
 import HapVrouw.entities.ghosts.GhostOranje;
 import HapVrouw.entities.ghosts.GhostRood;
 import HapVrouw.entities.tileMap.Muur;
-import HapVrouw.scenes.GameLevel;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collided;
@@ -27,6 +26,7 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
     private Coordinate2D previousLocation;
     private final int StartLocationX = 450;
     private final int StartLocationY = 470;
+    private Coordinate2D initialLocation;
     private HealthText healthText;
     private int heath = 3;
     private ScoreText scoreText;
@@ -40,6 +40,7 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
         this.scoreText = scoreText;
         scoreText.setScoreText(score);
         previousLocation = getAnchorLocation();
+        this.initialLocation = initialLocation;
     }
 
     @Override
@@ -57,13 +58,13 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
             if (collider instanceof GhostRood) {
               heath--;
               healthText.setHealthText(heath);
-              setAnchorLocation(new Coordinate2D(StartLocationX, StartLocationY));
+              setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
             }
 
             if (collider instanceof GhostOranje) {
                 score = score - 100;
                 scoreText.setScoreText(score);
-                setAnchorLocation(new Coordinate2D(StartLocationX, StartLocationY));
+                setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
             }
 
         }
