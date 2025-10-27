@@ -1,4 +1,4 @@
-package HapVrouw.entities.effectTiles.EffectTiles;
+package HapVrouw.entities.effectTiles.effectTiles;
 
 import HapVrouw.entities.effectTiles.EffectTile;
 import HapVrouw.entities.hapVrouw.HapVrouw;

@@ -1,7 +1,7 @@
 package HapVrouw.entities.effectTiles;
 
-import HapVrouw.entities.effectTiles.EffectTiles.SlowTile;
-import HapVrouw.entities.effectTiles.EffectTiles.SpeedTile;
+import HapVrouw.entities.effectTiles.effectTiles.SlowTile;
+import HapVrouw.entities.effectTiles.effectTiles.SpeedTile;
 import HapVrouw.entities.tileMap.MuurTileMap;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;

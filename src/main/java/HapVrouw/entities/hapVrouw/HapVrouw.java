@@ -7,7 +7,7 @@ import HapVrouw.entities.effectTiles.EffectTile;
 import HapVrouw.entities.ghosts.GhostOranje;
 import HapVrouw.entities.ghosts.GhostRood;
 import HapVrouw.entities.tileMap.Muur;
-import HapVrouw.entities.tileMap.dots.Dots;
+import HapVrouw.entities.dots.Dots;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collided;

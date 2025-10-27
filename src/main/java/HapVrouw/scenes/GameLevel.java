@@ -1,6 +1,7 @@
 package HapVrouw.scenes;
 
 import HapVrouw.Game;
+import HapVrouw.entities.dots.DotsSpawner;
 import HapVrouw.entities.text.*;
 import HapVrouw.entities.effectTiles.EffectTileSpawner;
 import HapVrouw.entities.ghosts.GhostOranje;
@@ -64,6 +65,7 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
     @Override
     public void setupEntitySpawners() {
         addEntitySpawner(new EffectTileSpawner(5000, x, y, muurTileMap));
+        addEntitySpawner(new DotsSpawner(0, x, y, muurTileMap));
     }
 
     @Override
