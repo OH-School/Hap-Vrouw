@@ -1,6 +1,7 @@
 package hapVrouw.entities.hapVrouw;
 
 import com.github.hanyaeger.api.TimerContainer;
+import com.github.hanyaeger.api.UpdateExposer;
 import hapVrouw.entities.dots.dots.BigDot;
 import hapVrouw.entities.ghosts.GhostPaars;
 import hapVrouw.entities.text.HealthText;
@@ -23,8 +24,9 @@ import javafx.scene.input.KeyCode;
 
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.Executor;
 
-public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneBorderCrossingWatcher, Collided, TimerContainer {
+public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneBorderCrossingWatcher, Collided, TimerContainer, UpdateExposer {
 
     private float standardSpeed = 3f;
     private float speed = standardSpeed;
@@ -36,6 +38,8 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
     private int score = 0;
     private boolean controlsReversed = false;
     private boolean isSuper = false;
+    private Time superTimer;
+
 
 
 
@@ -109,7 +113,9 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
     @Override
     public void onPressedKeysChange(Set<KeyCode> pressedKeys) {
         previousLocation = getAnchorLocation();
-
+        if (superTimer != null && superTimer.getSeconden() == 0) {
+            isSuper = false;
+        }
         if (pressedKeys.contains(KeyCode.LEFT)) {
             setMotion(speed, controlsReversed ? 90d : 270d);
             setAutoCycle(120, isSuper ? 5 : 1);
@@ -139,14 +145,21 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
 
     private void becomeSuper() {
         isSuper = true;
-        setupTimers();
+        initTimers();
     }
+
 
     @Override
     public void setupTimers() {
         if (isSuper) {
-            addTimer(new Time(5));
+            superTimer = new Time(5);
+            addTimer(superTimer);
         }
         System.out.println(getTimers());
+    }
+
+    @Override
+    public void explicitUpdate(long l) {
+
     }
 }

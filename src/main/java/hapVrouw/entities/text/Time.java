@@ -26,6 +26,9 @@ public class Time extends Timer {
         if (time != null) {
         time.updateTimer(seconden);
         }
+    }
 
+    public int getSeconden() {
+        return seconden;
     }
 }
