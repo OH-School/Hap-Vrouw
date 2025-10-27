@@ -31,4 +31,9 @@ public class Time extends Timer {
     public int getSeconden() {
         return seconden;
     }
+
+    public void setSeconden(int seconden) {
+        this.seconden = seconden;
+    }
+
 }

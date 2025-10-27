@@ -1,7 +1,6 @@
 package hapVrouw.entities.hapVrouw;
 
 import com.github.hanyaeger.api.TimerContainer;
-import com.github.hanyaeger.api.UpdateExposer;
 import hapVrouw.entities.dots.dots.BigDot;
 import hapVrouw.entities.ghosts.GhostPaars;
 import hapVrouw.entities.text.HealthText;
@@ -24,9 +23,8 @@ import javafx.scene.input.KeyCode;
 
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.Executor;
 
-public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneBorderCrossingWatcher, Collided, TimerContainer, UpdateExposer {
+public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneBorderCrossingWatcher, Collided, TimerContainer {
 
     private float standardSpeed = 3f;
     private float speed = standardSpeed;
@@ -113,7 +111,7 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
     @Override
     public void onPressedKeysChange(Set<KeyCode> pressedKeys) {
         previousLocation = getAnchorLocation();
-        if (superTimer != null && superTimer.getSeconden() == 0) {
+        if (superTimer != null && superTimer.getSeconden() <= 0) {
             isSuper = false;
         }
         if (pressedKeys.contains(KeyCode.LEFT)) {
@@ -139,6 +137,15 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
         System.out.println(speed);
     }
 
+    public void setLife(int health) {
+        this.heath = health;
+        healthText.setHealthText(health);
+    }
+
+    public int getLife() {
+        return this.heath;
+    }
+
     public float getStandardSpeed() {
         return this.standardSpeed;
     }
@@ -156,10 +163,5 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
             addTimer(superTimer);
         }
         System.out.println(getTimers());
-    }
-
-    @Override
-    public void explicitUpdate(long l) {
-
     }
 }

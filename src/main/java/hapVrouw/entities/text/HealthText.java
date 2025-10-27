@@ -10,7 +10,6 @@ public class HealthText extends Text {
 
     public void setHealthText(int health){
         setText("health: " + health);
-
     }
 
 }

@@ -2,11 +2,11 @@ package hapVrouw.scenes;
 
 import hapVrouw.Game;
 import hapVrouw.entities.dots.DotsSpawner;
-import hapVrouw.entities.text.*;
 import hapVrouw.entities.effectTiles.EffectTileSpawner;
 import hapVrouw.entities.ghosts.GhostPaars;
 import hapVrouw.entities.ghosts.Ghosts;
 import hapVrouw.entities.hapVrouw.HapVrouw;
+import hapVrouw.entities.text.*;
 import hapVrouw.entities.tileMap.MuurTileMap;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.EntitySpawnerContainer;
@@ -32,24 +32,20 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
         setBackgroundColor(Color.BLACK);
     }
 
-    /**
-     * 48x45 groot is een tile,  doe x * aantal tiles.
-     * begin met bij 0 tellen.
-     */
     @Override
     public void setupEntities() {
         Ghosts ghostPaars = new GhostPaars(new Coordinate2D(getWidth() / 2 , getHeight() / 2 -40 ));
         addEntity(ghostPaars);
-//        Ghosts ghostrood = new GhostRood(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
-//        addEntity(ghostrood);
-//        Ghosts ghostOranje = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
-//        addEntity(ghostOranje);
+
         ScoreText score = new ScoreText(new Coordinate2D(404,5));
         addEntity(score);
+
         HealthText health = new HealthText(new Coordinate2D(100,5));
         addEntity(health);
+
         timerDisplay = new TimerDisplay(new Coordinate2D(708, 5));
         addEntity(timerDisplay);
+
         HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(x * 9, y * 12), health, score);
         addEntity(hapVrouw);
     }
@@ -62,14 +58,15 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
 
     @Override
     public void setupEntitySpawners() {
-        addEntitySpawner(new EffectTileSpawner(5000, x, y, muurTileMap));
+        Time gameTime = new Time(timerDisplay, 200); // create a shared Time object
+        addTimer(gameTime); // add timer to the scene
+
+        addEntitySpawner(new EffectTileSpawner(5000, x, y, muurTileMap, gameTime));
         addEntitySpawner(new DotsSpawner(0, x, y, muurTileMap));
     }
 
     @Override
     public void setupTimers() {
-        addTimer(new Time(timerDisplay, 500));
+        // Already added Time in setupEntitySpawners
     }
 }
-
-
