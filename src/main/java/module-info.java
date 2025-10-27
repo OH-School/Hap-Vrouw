@@ -3,8 +3,8 @@ module Hap.Vrouw {
     requires org.checkerframework.checker.qual;
     requires java.desktop;
 
-    exports HapVrouw;
-    exports HapVrouw.entities.tileMap;
+    exports hapVrouw;
+    exports hapVrouw.entities.tileMap;
 
     //opens audio;
     opens backgrounds;
@@ -12,8 +12,8 @@ module Hap.Vrouw {
     opens sprites.action;
     opens sprites.ghosts;
     opens sprites.dots;
-    exports HapVrouw.entities.buttons;
-    exports HapVrouw.scenes;
-    exports HapVrouw.entities.dots;
-    exports HapVrouw.entities.dots.dots;
+    exports hapVrouw.entities.buttons;
+    exports hapVrouw.scenes;
+    exports hapVrouw.entities.dots;
+    exports hapVrouw.entities.dots.dots;
 }
