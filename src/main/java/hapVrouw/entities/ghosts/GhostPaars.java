@@ -2,13 +2,12 @@ package hapVrouw.entities.ghosts;
 
 import com.github.hanyaeger.api.Coordinate2D;
 
-public class GhostPaars extends Ghosts{
+public class GhostPaars {
 
-
-    public GhostPaars( Coordinate2D initialLocation) {
-        super("sprites/ghosts/picture.png", initialLocation);
-        setAutoCycle(100,1);
-
-
-    }
+//
+//    public GhostPaars( Coordinate2D initialLocation) {
+//        super(initialLocation);
+//        //setAutoCycle(100,1);
+//
+//    }
 }

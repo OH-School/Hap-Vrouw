@@ -1,5 +1,6 @@
 package hapVrouw.scenes;
 
+<<<<<<< Updated upstream:src/main/java/hapVrouw/scenes/GameLevel.java
 import hapVrouw.Game;
 import hapVrouw.entities.dots.DotsSpawner;
 import hapVrouw.entities.effectTiles.EffectTileSpawner;
@@ -8,6 +9,15 @@ import hapVrouw.entities.ghosts.Ghosts;
 import hapVrouw.entities.hapVrouw.HapVrouw;
 import hapVrouw.entities.text.*;
 import hapVrouw.entities.tileMap.MuurTileMap;
+=======
+import HapVrouw.Game;
+import HapVrouw.entities.dots.DotsSpawner;
+import HapVrouw.entities.ghosts.*;
+import HapVrouw.entities.text.*;
+import HapVrouw.entities.effectTiles.EffectTileSpawner;
+import HapVrouw.entities.hapVrouw.HapVrouw;
+import HapVrouw.entities.tileMap.MuurTileMap;
+>>>>>>> Stashed changes:src/main/java/HapVrouw/scenes/GameLevel.java
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.EntitySpawnerContainer;
 import com.github.hanyaeger.api.TimerContainer;
@@ -34,9 +44,21 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
 
     @Override
     public void setupEntities() {
+<<<<<<< Updated upstream:src/main/java/hapVrouw/scenes/GameLevel.java
         Ghosts ghostPaars = new GhostPaars(new Coordinate2D(getWidth() / 2 , getHeight() / 2 -40 ));
         addEntity(ghostPaars);
 
+=======
+//        GhostsSpirte ghostPaars = new GhostPaars(new Coordinate2D(getWidth() / 2 , getHeight() / 2 -40 ));
+//        addEntity(ghostPaars);
+//        GhostsSpirte ghostrood = new GhostRood(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
+//        addEntity(ghostrood);
+//        GhostsSpirte ghostOranje = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
+//        addEntity(ghostOranje);
+
+        var ghosts = new Ghosts(new Coordinate2D(getWidth()/2, getHeight()/2));
+        addEntity(ghosts);
+>>>>>>> Stashed changes:src/main/java/HapVrouw/scenes/GameLevel.java
         ScoreText score = new ScoreText(new Coordinate2D(404,5));
         addEntity(score);
 

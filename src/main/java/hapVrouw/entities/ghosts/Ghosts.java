@@ -1,88 +1,44 @@
 package hapVrouw.entities.ghosts;
 
+<<<<<<< Updated upstream:src/main/java/hapVrouw/entities/ghosts/Ghosts.java
 import hapVrouw.entities.tileMap.Muur;
+=======
+>>>>>>> Stashed changes:src/main/java/HapVrouw/entities/ghosts/Ghosts.java
 import com.github.hanyaeger.api.Coordinate2D;
-import com.github.hanyaeger.api.Size;
-import com.github.hanyaeger.api.entities.Collided;
-import com.github.hanyaeger.api.entities.Collider;
+import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
-import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 
+<<<<<<< Updated upstream:src/main/java/hapVrouw/entities/ghosts/Ghosts.java
 import java.util.List;
+=======
+>>>>>>> Stashed changes:src/main/java/HapVrouw/entities/ghosts/Ghosts.java
 import java.util.Random;
 
-public class Ghosts extends DynamicSpriteEntity implements Collided, SceneBorderCrossingWatcher, Collider{
+public class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossingWatcher {
 
     private Random random = new Random();
     private int[] directions = {0, 90, 180, 270};
-    private double currentDirection;
 
-
-    protected Ghosts(String resource, Coordinate2D location) {
-        super(resource, location, new Size(35), 3, 5);
+    public Ghosts(Coordinate2D initialLocation) {
+        super(initialLocation);
         setSpeed(0.2);
-        System.out.println(location);
-        currentDirection = directions[random.nextInt(4)];
-        setDirection(270);
+        setDirection(90);
     }
 
     @Override
-    public void onCollision(List<Collider> list) {
-
-
-        for (Collider collider : list) {
-            if (collider instanceof Muur) {
-                Muur muur = (Muur) collider;
-
-                // Definieer alle kanten van de muur
-                double muurBovenKant = muur.getAnchorLocation().getY();
-                double muurOnderKant = muur.getAnchorLocation().getY() + muur.getHeight();
-                double muurLinkerKant = muur.getAnchorLocation().getX();
-                double muurRechterKant = muur.getAnchorLocation().getX() + muur.getWidth();
-
-                // En voor de ghost
-                double ghostBovenKant = this.getAnchorLocation().getY();
-                double ghostOnderKant = this.getAnchorLocation().getY() + this.getHeight();
-                double ghostLinkerKant = this.getAnchorLocation().getX();
-                double ghostRechterKant = this.getAnchorLocation().getX() + this.getWidth();
-
-////                 Check botsing met onderkant van muur (ghost komt van onder)
-//                if (ghostBovenKant <= muurOnderKant && ghostBovenKant >= muurBovenKant) {
-//                    setAnchorLocationY(getAnchorLocation().getY() + 4);
-//                    setDirection(directions[random.nextInt(4)]);
-//                    break;
-//                }
-//
-//                // Check botsing met bovenkant van muur (ghost komt van boven)
-//                if (ghostOnderKant >= muurBovenKant && ghostOnderKant <= muurOnderKant) {
-//                    setAnchorLocationY(getAnchorLocation().getY() - 4);
-//                    setDirection(directions[random.nextInt(4)]);
-//                    break;
-//                }
-
-                // Check botsing met rechterkant van muur (ghost komt van rechts)
-                if (ghostLinkerKant <= muurRechterKant && ghostLinkerKant >= muurLinkerKant) {
-                    setAnchorLocationX(getAnchorLocation().getX() + 4);
-                    setDirection(directions[random.nextInt(4)]);
-                    break;
-                }
-
-                // Check botsing met linkerkant van muur (ghost komt van links)
-                if (ghostRechterKant >= muurLinkerKant && ghostRechterKant <= muurRechterKant) {
-                    setAnchorLocationX(getAnchorLocation().getX() - 4);
-                    setDirection(directions[random.nextInt(4)]);
-                    break;
-                }
-            }
-        }
-
+    protected void setupEntities() {
+        GhostsSprite ghostsSprite = new GhostsSprite("sprites/ghosts/picture.png",new Coordinate2D(getWidth() / 2 , getHeight() / 2 -80 ),0);
+        addEntity(ghostsSprite);
+        Hitbox hitboxLinks = new Hitbox(new Coordinate2D(getWidth() / 2 , getHeight() / 2 -80 ),1,35, Zijkanten.Links);
+        addEntity(hitboxLinks);
+        Hitbox hitboxRechts = new Hitbox(new Coordinate2D(getWidth() / 2 +30, getHeight() / 2 -80 ),1,35, Zijkanten.Rechts);
+        addEntity(hitboxRechts);
+        Hitbox hitboxBoven = new Hitbox(new Coordinate2D(getWidth() / 2 , getHeight() / 2 -80 ),30,1, Zijkanten.Boven);
+        addEntity(hitboxBoven);
+        Hitbox hitboxOnder = new Hitbox(new Coordinate2D(getWidth() / 2 , getHeight() / 2 - 45 ),30,1, Zijkanten.Onder);
+        addEntity(hitboxOnder);
     }
-
-
-
-
-
 
     @Override
     public void notifyBoundaryCrossing(SceneBorder sceneBorder) {
@@ -96,3 +52,4 @@ public class Ghosts extends DynamicSpriteEntity implements Collided, SceneBorder
         }
     }
 }
+

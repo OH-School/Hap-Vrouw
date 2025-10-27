@@ -2,12 +2,11 @@ package hapVrouw.entities.ghosts;
 
 import com.github.hanyaeger.api.Coordinate2D;
 
-public class GhostRood extends Ghosts{
+public class GhostRood {
 
 
-    public GhostRood(Coordinate2D initialLocation) {
-        super("sprites/ghosts/picture.png",initialLocation);
-
-        setAutoCycle(100,2);
-    }
+//    public GhostRood(Coordinate2D initialLocation) {
+//        super("sprites/ghosts/picture.png",initialLocation);
+//        setAutoCycle(100,2);
+//    }
 }
