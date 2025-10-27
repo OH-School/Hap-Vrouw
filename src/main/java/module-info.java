@@ -2,6 +2,7 @@ module Hap.Vrouw {
     requires hanyaeger;
     requires org.checkerframework.checker.qual;
     requires java.desktop;
+    requires java.sql;
 
     exports hapVrouw;
     exports hapVrouw.entities.tileMap;

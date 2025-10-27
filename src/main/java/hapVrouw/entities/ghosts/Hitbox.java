@@ -1,8 +1,8 @@
-package HapVrouw.entities.ghosts;
+package hapVrouw.entities.ghosts;
 
-import HapVrouw.entities.dots.Dots;
-import HapVrouw.entities.effectTiles.EffectTile;
-import HapVrouw.entities.tileMap.Muur;
+import hapVrouw.entities.dots.Dots;
+import hapVrouw.entities.effectTiles.EffectTile;
+import hapVrouw.entities.tileMap.Muur;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
@@ -29,7 +29,7 @@ public class Hitbox extends RectangleEntity implements Collided {
        for (Collider collider : colliders) {
            if (collider instanceof Muur) {
                if (zijkanten == Zijkanten.Rechts ) {
-                   Zijkanten.setAnchorLocationX(getAnchorLocation().getX() - 5);
+
                }
                else if (zijkanten == Zijkanten.Links ) {
 

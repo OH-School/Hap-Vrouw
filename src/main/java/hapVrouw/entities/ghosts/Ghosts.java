@@ -1,19 +1,12 @@
 package hapVrouw.entities.ghosts;
 
-<<<<<<< Updated upstream:src/main/java/hapVrouw/entities/ghosts/Ghosts.java
-import hapVrouw.entities.tileMap.Muur;
-=======
->>>>>>> Stashed changes:src/main/java/HapVrouw/entities/ghosts/Ghosts.java
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
 import com.github.hanyaeger.api.scenes.SceneBorder;
-
-<<<<<<< Updated upstream:src/main/java/hapVrouw/entities/ghosts/Ghosts.java
 import java.util.List;
-=======
->>>>>>> Stashed changes:src/main/java/HapVrouw/entities/ghosts/Ghosts.java
 import java.util.Random;
+import hapVrouw.entities.ghosts.GhostsSprite;
 
 public class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossingWatcher {
 
