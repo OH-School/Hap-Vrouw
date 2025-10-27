@@ -6,6 +6,7 @@ import HapVrouw.entities.effectTiles.EffectTile;
 import HapVrouw.entities.ghosts.GhostOranje;
 import HapVrouw.entities.ghosts.GhostRood;
 import HapVrouw.entities.tileMap.Muur;
+import HapVrouw.entities.tileMap.dots.Dots;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.entities.Collided;
@@ -24,8 +25,6 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
     private float standardSpeed = 3f;
     private float speed = standardSpeed;
     private Coordinate2D previousLocation;
-    private final int StartLocationX = 450;
-    private final int StartLocationY = 470;
     private Coordinate2D initialLocation;
     private HealthText healthText;
     private int heath = 3;
@@ -51,6 +50,10 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
                 setSpeed(0);
                 break;
             }
+            if (collider instanceof Dots) {
+                ((Dots) collider).addPoints(scoreText);
+            }
+
             if (collider instanceof EffectTile) {
                 ((EffectTile) collider).action(this);
             }
@@ -104,18 +107,17 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
         } else if (pressedKeys.contains(KeyCode.DOWN)) {
             setMotion(speed, 0d);
             setAutoCycle(120, 3);
-        } else {
+        }
+        else {
             setSpeed(0);
         }
     }
 
-    // 👇 Deze setter gebruiken we in SpeedTile
     public void setPlayerSpeed(float newSpeed) {
         this.speed = newSpeed;
         System.out.println(speed);
     }
 
-    // 👇 Getter voor als je de huidige snelheid nodig hebt
     public float getStandardSpeed() {
         return this.standardSpeed;
     }

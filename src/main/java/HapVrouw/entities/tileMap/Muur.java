@@ -8,7 +8,6 @@ import com.github.hanyaeger.api.entities.impl.SpriteEntity;
 
 public class Muur extends SpriteEntity implements Collider {
     public Muur(Coordinate2D initialLocation, Size size, String resource) {
-
         super(resource, initialLocation, size);
     }
 }
