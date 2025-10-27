@@ -45,6 +45,12 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
 
         var ghosts = new Ghosts(new Coordinate2D(getWidth()/2, getHeight()/2));
         addEntity(ghosts);
+        var ghostss = new Ghosts(new Coordinate2D(getWidth()/2, getHeight()/2));
+        addEntity(ghostss);
+        var ghostsa = new Ghosts(new Coordinate2D(getWidth()/2, getHeight()/2));
+        addEntity(ghostsa);
+        var ghostsaa = new Ghosts(new Coordinate2D(getWidth()/2, getHeight()/2));
+        addEntity(ghostsaa);
         ScoreText score = new ScoreText(new Coordinate2D(404,5));
         addEntity(score);
         HealthText health = new HealthText(new Coordinate2D(100,5));

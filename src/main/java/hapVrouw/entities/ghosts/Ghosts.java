@@ -4,9 +4,7 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
 import com.github.hanyaeger.api.scenes.SceneBorder;
-import java.util.List;
 import java.util.Random;
-import hapVrouw.entities.ghosts.GhostsSprite;
 
 public class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossingWatcher {
 
@@ -15,22 +13,69 @@ public class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossin
 
     public Ghosts(Coordinate2D initialLocation) {
         super(initialLocation);
-        setSpeed(0.2);
+        setSpeed(5);
         setDirection(90);
     }
 
     @Override
     protected void setupEntities() {
-        GhostsSprite ghostsSprite = new GhostsSprite("sprites/ghosts/picture.png",new Coordinate2D(getWidth() / 2 , getHeight() / 2 -80 ),0);
+        GhostsSprite ghostsSprite = new GhostsSprite("sprites/ghosts/picture.png",
+                new Coordinate2D(getWidth() / 2, getHeight() / 2 - 80), 0);
         addEntity(ghostsSprite);
-        Hitbox hitboxLinks = new Hitbox(new Coordinate2D(getWidth() / 2 , getHeight() / 2 -80 ),1,35, Zijkanten.Links);
+
+        Hitbox hitboxLinks = new Hitbox(new Coordinate2D(getWidth() / 2, getHeight() / 2 - 80),
+                1, 35, Zijkanten.Links, this);
         addEntity(hitboxLinks);
-        Hitbox hitboxRechts = new Hitbox(new Coordinate2D(getWidth() / 2 +30, getHeight() / 2 -80 ),1,35, Zijkanten.Rechts);
+
+        Hitbox hitboxRechts = new Hitbox(new Coordinate2D(getWidth() / 2 + 30, getHeight() / 2 - 80),
+                1, 35, Zijkanten.Rechts, this);
         addEntity(hitboxRechts);
-        Hitbox hitboxBoven = new Hitbox(new Coordinate2D(getWidth() / 2 , getHeight() / 2 -80 ),30,1, Zijkanten.Boven);
+
+        Hitbox hitboxBoven = new Hitbox(new Coordinate2D(getWidth() / 2, getHeight() / 2 - 80),
+                30, 1, Zijkanten.Boven, this);
         addEntity(hitboxBoven);
-        Hitbox hitboxOnder = new Hitbox(new Coordinate2D(getWidth() / 2 , getHeight() / 2 - 45 ),30,1, Zijkanten.Onder);
+
+        Hitbox hitboxOnder = new Hitbox(new Coordinate2D(getWidth() / 2, getHeight() / 2 - 45),
+                30, 1, Zijkanten.Onder, this);
         addEntity(hitboxOnder);
+    }
+
+
+    public void handleWallCollision(Zijkanten zijkant) {
+        double stepBackDistance = 5; // Pas aan naar wens
+
+        switch (zijkant) {
+            case Boven:
+                setAnchorLocation(new Coordinate2D(
+                        getAnchorLocation().getX(),
+                        getAnchorLocation().getY() + stepBackDistance
+                ));
+                break;
+
+            case Onder:
+                setAnchorLocation(new Coordinate2D(
+                        getAnchorLocation().getX(),
+                        getAnchorLocation().getY() - stepBackDistance
+                ));
+                break;
+
+            case Links:
+                setAnchorLocation(new Coordinate2D(
+                        getAnchorLocation().getX() + stepBackDistance,
+                        getAnchorLocation().getY()
+                ));
+                break;
+
+            case Rechts:
+                setAnchorLocation(new Coordinate2D(
+                        getAnchorLocation().getX() - stepBackDistance,
+                        getAnchorLocation().getY()
+                ));
+                break;
+        }
+
+        int newDirection = directions[random.nextInt(directions.length)];
+        setDirection(newDirection);
     }
 
     @Override

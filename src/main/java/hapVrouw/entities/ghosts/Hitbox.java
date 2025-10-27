@@ -1,7 +1,5 @@
 package hapVrouw.entities.ghosts;
 
-import hapVrouw.entities.dots.Dots;
-import hapVrouw.entities.effectTiles.EffectTile;
 import hapVrouw.entities.tileMap.Muur;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.Collided;
@@ -14,33 +12,25 @@ import java.util.List;
 public class Hitbox extends RectangleEntity implements Collided {
 
     private Zijkanten zijkanten;
-    private int Width = 0;
-    private int Height = 0;
-    public Hitbox(final Coordinate2D initialPosition, int Width, int Height, Zijkanten zijkanten) {
+    private Ghosts parentGhost;
+
+    public Hitbox(final Coordinate2D initialPosition, int Width, int Height,
+                  Zijkanten zijkanten, Ghosts parentGhost) {
         super(initialPosition);
         this.zijkanten = zijkanten;
+        this.parentGhost = parentGhost;
         setWidth(Width);
         setHeight(Height);
-        setFill(Color.RED);
+        setFill(Color.TRANSPARENT);
     }
 
     @Override
     public void onCollision(List<Collider> colliders) {
-       for (Collider collider : colliders) {
-           if (collider instanceof Muur) {
-               if (zijkanten == Zijkanten.Rechts ) {
-
-               }
-               else if (zijkanten == Zijkanten.Links ) {
-
-               }
-               else if (zijkanten == Zijkanten.Boven) {
-
-               }
-               else if (zijkanten == Zijkanten.Onder) {
-
-               }
-           }
-       }
+        for (Collider collider : colliders) {
+            if (collider instanceof Muur) {
+                parentGhost.handleWallCollision(zijkanten);
+                break;
+            }
+        }
     }
 }
