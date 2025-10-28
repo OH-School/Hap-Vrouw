@@ -14,6 +14,7 @@ public class DotsSpawner extends EntitySpawner {
 
     public DotsSpawner(long intervalInMs, int tileWidth, int tileHeight, MuurTileMap muurTileMap) {
         super(intervalInMs);
+        Dots.nDots = 0;
         this.tileWidth = tileWidth;
         this.tileHeight = tileHeight;
         this.mapData = muurTileMap.defineMap();

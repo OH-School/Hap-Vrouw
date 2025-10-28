@@ -4,19 +4,19 @@ import com.github.hanyaeger.api.Coordinate2D;
 
 public class ScoreText extends Text {
 
-    private int score; // <-- veld toegevoegd
+    private static int score;
 
     public ScoreText(Coordinate2D initialLocation) {
         super(initialLocation);
-        setScoreText(0); // begin met score 0
+        setScoreText(getScore());
     }
 
     public void setScoreText(int score) {
-        this.score = score;           // waarde opslaan
-        setText("Score: " + score);   // tekst updaten
+        ScoreText.score = score;
+        setText("Score: " + score);
     }
 
     public int getScore() {
-        return this.score;            // actuele score teruggeven
+        return ScoreText.score;
     }
 }

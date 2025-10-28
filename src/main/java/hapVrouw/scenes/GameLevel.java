@@ -52,13 +52,13 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
         addEntity(ghostsa);
         var ghostsaa = new Ghosts(new Coordinate2D(getWidth()/2, getHeight()/2));
         addEntity(ghostsaa);
-        ScoreText score = new ScoreText(new Coordinate2D(404,5));
-        addEntity(score);
+        ScoreText scoreText = new ScoreText(new Coordinate2D(404,5));
+        addEntity(scoreText);
         HealthText health = new HealthText(new Coordinate2D(100,5));
         addEntity(health);
         timerDisplay = new TimerDisplay(new Coordinate2D(708, 5), game);
         addEntity(timerDisplay);
-        HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(x * 9, y * 12 + 5), health, score);
+        HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(x * 9, y * 12 + 5), health, scoreText);
         addEntity(hapVrouw);
     }
 
@@ -76,8 +76,7 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
 
     @Override
     public void setupTimers() {
-        gameTime = new Time(timerDisplay, 10); // create a shared Time object
+        gameTime = new Time(timerDisplay, 200); // create a shared Time object
         addTimer(gameTime);
     }
-
 }
