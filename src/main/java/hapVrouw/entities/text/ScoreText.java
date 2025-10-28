@@ -16,7 +16,7 @@ public class ScoreText extends Text {
         setText("Score: " + score);
     }
 
-    public int getScore() {
+    public static int getScore() {
         return ScoreText.score;
     }
 }

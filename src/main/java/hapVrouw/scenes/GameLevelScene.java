@@ -17,7 +17,7 @@ import com.github.hanyaeger.api.scenes.TileMapContainer;
 import javafx.scene.paint.Color;
 
 
-public class GameLevel extends DynamicScene implements TileMapContainer, EntitySpawnerContainer, TimerContainer {
+public class GameLevelScene extends DynamicScene implements TileMapContainer, EntitySpawnerContainer, TimerContainer {
 
     private Game game;
     private TimerDisplay timerDisplay;
@@ -26,7 +26,7 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
     private int y = 45;
     private MuurTileMap muurTileMap;
 
-    public GameLevel(Game game) {
+    public GameLevelScene(Game game) {
         this.game = game;
     }
 
@@ -76,7 +76,7 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
 
     @Override
     public void setupTimers() {
-        gameTime = new Time(timerDisplay, 200); // create a shared Time object
+        gameTime = new Time(timerDisplay, 2); // create a shared Time object
         addTimer(gameTime);
     }
 }

@@ -8,14 +8,12 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.scenes.StaticScene;
 import hapVrouw.entities.text.ScoreText;
 
-public class GameOver extends StaticScene {
+public class GameOverScene extends StaticScene {
 
     private Game game;
-    private int finalScore;
 
-    public GameOver(Game game) {
+    public GameOverScene(Game game) {
         this.game = game;
-        this.finalScore = finalScore;
     }
 
     @Override
@@ -26,7 +24,7 @@ public class GameOver extends StaticScene {
     @Override
     public void setupEntities() {
         ScoreText score = new ScoreText(new Coordinate2D(404,5));
-        score.setScoreText(finalScore);
+        score.setScoreText(ScoreText.getScore());
         addEntity(score);
         Button startButton = new StartButton(new Coordinate2D(getWidth() / 2, getHeight() / 2), "Start", game);
         addEntity(startButton);

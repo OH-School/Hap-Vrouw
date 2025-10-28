@@ -1,7 +1,7 @@
 package hapVrouw;
 
-import hapVrouw.scenes.GameLevel;
-import hapVrouw.scenes.GameOver;
+import hapVrouw.scenes.GameLevelScene;
+import hapVrouw.scenes.GameOverScene;
 import hapVrouw.scenes.TitleScene;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.YaegerGame;
@@ -27,7 +27,7 @@ public class Game extends YaegerGame {
     @Override
     public void setupScenes() {
         addScene(0, new TitleScene(this));
-        addScene(1, new GameLevel(this));
-        addScene(2, new GameOver(this));
+        addScene(1, new GameLevelScene(this));
+        addScene(2, new GameOverScene(this));
     }
 }
