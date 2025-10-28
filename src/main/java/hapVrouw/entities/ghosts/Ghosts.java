@@ -4,23 +4,28 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
 import com.github.hanyaeger.api.scenes.SceneBorder;
+import hapVrouw.entities.ghosts.Sprites.GhostsSprite;
+
 import java.util.Random;
 
 public class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossingWatcher {
 
     private Random random = new Random();
     private int[] directions = {0, 90, 180, 270};
+    private int row;
 
-    public Ghosts(Coordinate2D initialLocation) {
+
+    public Ghosts(Coordinate2D initialLocation, int row) {
         super(initialLocation);
-        setSpeed(5);
+        this.row = row;
+        setSpeed(0.5);
         setDirection(90);
     }
 
     @Override
     protected void setupEntities() {
         GhostsSprite ghostsSprite = new GhostsSprite("sprites/ghosts/picture.png",
-                new Coordinate2D(getWidth() / 2, getHeight() / 2 - 80), 0);
+                new Coordinate2D(getWidth() / 2, getHeight() / 2 - 80), row);
         addEntity(ghostsSprite);
 
         Hitbox hitboxLinks = new Hitbox(new Coordinate2D(getWidth() / 2, getHeight() / 2 - 80),
@@ -38,6 +43,10 @@ public class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossin
         Hitbox hitboxOnder = new Hitbox(new Coordinate2D(getWidth() / 2, getHeight() / 2 - 45),
                 30, 1, Zijkanten.Onder, this);
         addEntity(hitboxOnder);
+    }
+
+    public int getRow(){
+        return row;
     }
 
 

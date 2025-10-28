@@ -9,13 +9,12 @@ import javafx.scene.paint.Color;
 
 import java.util.List;
 
-public class Hitbox extends RectangleEntity implements Collided {
+public class Hitbox extends RectangleEntity implements Collided, Collider{
 
     private Zijkanten zijkanten;
     private Ghosts parentGhost;
 
-    public Hitbox(final Coordinate2D initialPosition, int Width, int Height,
-                  Zijkanten zijkanten, Ghosts parentGhost) {
+    public Hitbox(final Coordinate2D initialPosition, int Width, int Height, Zijkanten zijkanten, Ghosts parentGhost) {
         super(initialPosition);
         this.zijkanten = zijkanten;
         this.parentGhost = parentGhost;

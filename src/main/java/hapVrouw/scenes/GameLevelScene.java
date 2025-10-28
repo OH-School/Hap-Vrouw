@@ -5,6 +5,8 @@ import hapVrouw.Game;
 import hapVrouw.entities.dots.DotsSpawner;
 import hapVrouw.entities.effectTiles.EffectTileSpawner;
 import hapVrouw.entities.ghosts.Ghosts;
+import hapVrouw.entities.ghosts.Sprites.GhostOranjeSprite;
+import hapVrouw.entities.ghosts.Sprites.GhostsSprite;
 import hapVrouw.entities.hapVrouw.HapVrouw;
 import hapVrouw.entities.text.*;
 import hapVrouw.entities.tileMap.MuurTileMap;
@@ -37,15 +39,11 @@ public class GameLevelScene extends DynamicScene implements TileMapContainer, En
 
     @Override
     public void setupEntities() {
-//        GhostsSpirte ghostPaars = new GhostPaars(new Coordinate2D(getWidth() / 2 , getHeight() / 2 -40 ));
-//        addEntity(ghostPaars);
-//        GhostsSpirte ghostrood = new GhostRood(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
-//        addEntity(ghostrood);
-//        GhostsSpirte ghostOranje = new GhostOranje(new Coordinate2D(getWidth() / 2 +40 , getHeight() / 2 -40 ));
-//        addEntity(ghostOranje);
-
-        var ghosts = new Ghosts(new Coordinate2D(getWidth()/2, getHeight()/2));
+        
+        Ghosts ghosts = new Ghosts(new Coordinate2D(getWidth() / 2, getHeight() / 2), 2) {
+        };
         addEntity(ghosts);
+<<<<<<< Updated upstream:src/main/java/hapVrouw/scenes/GameLevelScene.java
         var ghostss = new Ghosts(new Coordinate2D(getWidth()/2, getHeight()/2));
         addEntity(ghostss);
         var ghostsa = new Ghosts(new Coordinate2D(getWidth()/2, getHeight()/2));
@@ -55,10 +53,20 @@ public class GameLevelScene extends DynamicScene implements TileMapContainer, En
         ScoreText scoreText = new ScoreText(new Coordinate2D(getWidth() / 2,20));
         addEntity(scoreText);
         HealthText health = new HealthText(new Coordinate2D(100,20));
+=======
+
+        ScoreText score = new ScoreText(new Coordinate2D(404,5));
+        addEntity(score);
+        HealthText health = new HealthText(new Coordinate2D(100,5));
+>>>>>>> Stashed changes:src/main/java/hapVrouw/scenes/GameLevel.java
         addEntity(health);
         timerDisplay = new TimerDisplay(new Coordinate2D(708, 20), game);
         addEntity(timerDisplay);
+<<<<<<< Updated upstream:src/main/java/hapVrouw/scenes/GameLevelScene.java
         HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(x * 9, y * 12 + 5), health, scoreText);
+=======
+        HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(x * 9, y * 12 + 5), health, score, ghosts);
+>>>>>>> Stashed changes:src/main/java/hapVrouw/scenes/GameLevel.java
         addEntity(hapVrouw);
     }
 
@@ -76,7 +84,11 @@ public class GameLevelScene extends DynamicScene implements TileMapContainer, En
 
     @Override
     public void setupTimers() {
+<<<<<<< Updated upstream:src/main/java/hapVrouw/scenes/GameLevelScene.java
         gameTime = new Time(timerDisplay, 2); // create a shared Time object
+=======
+        gameTime = new Time(timerDisplay, 1000); // create a shared Time object
+>>>>>>> Stashed changes:src/main/java/hapVrouw/scenes/GameLevel.java
         addTimer(gameTime);
     }
 }

@@ -2,12 +2,15 @@ package hapVrouw.entities.hapVrouw;
 
 import com.github.hanyaeger.api.TimerContainer;
 import hapVrouw.entities.dots.dots.BigDot;
-import hapVrouw.entities.ghosts.GhostPaars;
+import hapVrouw.entities.ghosts.Ghosts;
+import hapVrouw.entities.ghosts.Hitbox;
+import hapVrouw.entities.ghosts.Sprites.GhostPaarsSprite;
+import hapVrouw.entities.ghosts.Sprites.GhostsSprite;
 import hapVrouw.entities.text.HealthText;
 import hapVrouw.entities.text.ScoreText;
 import hapVrouw.entities.effectTiles.EffectTile;
-import hapVrouw.entities.ghosts.GhostOranje;
-import hapVrouw.entities.ghosts.GhostRood;
+import hapVrouw.entities.ghosts.Sprites.GhostOranjeSprite;
+import hapVrouw.entities.ghosts.Sprites.GhostRoodSprite;
 import hapVrouw.entities.text.Time;
 import hapVrouw.entities.tileMap.Muur;
 import hapVrouw.entities.dots.Dots;
@@ -37,11 +40,10 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
     private boolean controlsReversed = false;
     private boolean isSuper = false;
     private Time superTimer;
+    private Ghosts ghosts;
 
 
-
-
-    public HapVrouw(Coordinate2D initialLocation, HealthText healthText, ScoreText scoreText) {
+    public HapVrouw(Coordinate2D initialLocation, HealthText healthText, ScoreText scoreText, Ghosts ghosts) {
         super("sprites/hapvrouw/hapvrouw.png", initialLocation, new Size(28), 8, 5);
         this.healthText = healthText;
         healthText.setHealthText(heath);
@@ -49,6 +51,7 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
         scoreText.setScoreText(score);
         previousLocation = getAnchorLocation();
         this.initialLocation = initialLocation;
+        this.ghosts = ghosts;
     }
 
     @Override
@@ -70,22 +73,24 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
                 ((EffectTile) collider).action(this);
             }
 
-            if (collider instanceof GhostRood) {
-              heath--;
-              healthText.setHealthText(heath);
-              setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
-            }
+            if (collider instanceof Hitbox) {
+                System.out.println(" Ghost Hitbox");
+                System.out.println(ghosts.getRow());
+                if (ghosts.getRow() == 0) {
+                    score = score - 100;
+                    scoreText.setScoreText(score);
+                    setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()) );
 
-            if (collider instanceof GhostOranje) {
-                score = score - 100;
-                scoreText.setScoreText(score);
-                setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
-            }
+                }
+                else if (ghosts.getRow() == 1) {
+                    controlsReversed = !controlsReversed;
+                } else if (ghosts.getRow() == 2) {
+                    heath--;
+                    healthText.setHealthText(heath);
+                    setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
+                }
 
-            if (collider instanceof GhostPaars) {
-                controlsReversed = !controlsReversed; // Toggle: aan/uit wisselen
             }
-
         }
     }
 

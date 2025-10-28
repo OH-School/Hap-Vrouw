@@ -24,7 +24,7 @@ public class DotsSpawner extends EntitySpawner {
     @Override
     protected void spawnEntities() {
         // Alleen dots spawnen als er nog geen zijn
-        if (Dots.nDots < 1) {
+        if (Dots.nDots < 0) {
             for (int row = 0; row < mapData.length; row++) {
                 for (int col = 0; col < mapData[row].length; col++) {
                     if (mapData[row][col] == 0) {
