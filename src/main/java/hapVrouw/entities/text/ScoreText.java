@@ -1,5 +1,6 @@
 package hapVrouw.entities.text;
 
+import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.Coordinate2D;
 
 public class ScoreText extends Text {

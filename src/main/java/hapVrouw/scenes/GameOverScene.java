@@ -23,7 +23,7 @@ public class GameOverScene extends StaticScene {
 
     @Override
     public void setupEntities() {
-        ScoreText score = new ScoreText(new Coordinate2D(404,5));
+        ScoreText score = new ScoreText(new Coordinate2D(getWidth() / 2, getHeight() / 3));
         score.setScoreText(ScoreText.getScore());
         addEntity(score);
         Button startButton = new StartButton(new Coordinate2D(getWidth() / 2, getHeight() / 2), "Start", game);

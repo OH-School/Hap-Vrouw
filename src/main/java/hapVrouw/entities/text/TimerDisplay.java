@@ -1,5 +1,6 @@
 package hapVrouw.entities.text;
 
+import com.github.hanyaeger.api.AnchorPoint;
 import com.github.hanyaeger.api.entities.impl.DynamicTextEntity;
 import com.github.hanyaeger.api.Coordinate2D;
 import hapVrouw.Game;
@@ -16,6 +17,7 @@ public class TimerDisplay extends DynamicTextEntity {
         super(initialLocation);
         this.game = game;
         setFont(Font.font("Roboto", FontWeight.NORMAL, 30));
+        setAnchorPoint(AnchorPoint.CENTER_CENTER);
         setFill(Color.RED);
     }
 

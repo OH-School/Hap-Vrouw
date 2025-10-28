@@ -52,11 +52,11 @@ public class GameLevelScene extends DynamicScene implements TileMapContainer, En
         addEntity(ghostsa);
         var ghostsaa = new Ghosts(new Coordinate2D(getWidth()/2, getHeight()/2));
         addEntity(ghostsaa);
-        ScoreText scoreText = new ScoreText(new Coordinate2D(404,5));
+        ScoreText scoreText = new ScoreText(new Coordinate2D(getWidth() / 2,20));
         addEntity(scoreText);
-        HealthText health = new HealthText(new Coordinate2D(100,5));
+        HealthText health = new HealthText(new Coordinate2D(100,20));
         addEntity(health);
-        timerDisplay = new TimerDisplay(new Coordinate2D(708, 5), game);
+        timerDisplay = new TimerDisplay(new Coordinate2D(708, 20), game);
         addEntity(timerDisplay);
         HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(x * 9, y * 12 + 5), health, scoreText);
         addEntity(hapVrouw);
