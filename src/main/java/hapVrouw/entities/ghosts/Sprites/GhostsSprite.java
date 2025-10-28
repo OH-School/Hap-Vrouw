@@ -6,7 +6,7 @@ import com.github.hanyaeger.api.entities.Collided;
 import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.impl.DynamicSpriteEntity;
 
-public class GhostsSprite extends DynamicSpriteEntity {
+public class GhostsSprite extends DynamicSpriteEntity implements Collider {
 
     public GhostsSprite(String resource, Coordinate2D initialLocation, int row) {
         super(resource, initialLocation, new Size(35), 3, 5);

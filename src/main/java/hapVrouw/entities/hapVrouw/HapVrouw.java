@@ -73,7 +73,7 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
                 ((EffectTile) collider).action(this);
             }
 
-            if (collider instanceof Hitbox) {
+            if (collider instanceof GhostsSprite) {
                 System.out.println(" Ghost Hitbox");
                 System.out.println(ghosts.getRow());
                 if (ghosts.getRow() == 0) {
