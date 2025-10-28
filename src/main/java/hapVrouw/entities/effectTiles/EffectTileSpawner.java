@@ -30,7 +30,7 @@ public class EffectTileSpawner extends EntitySpawner {
 
     @Override
     protected void spawnEntities() {
-        int randomEffectTile = random.nextInt(100); // 0=Speed, 1=Slow, 2=Time
+        int randomEffectTile = random.nextInt(4); // 0=Speed, 1=Slow, 2=Time
 
         int randomX, randomY;
         do {

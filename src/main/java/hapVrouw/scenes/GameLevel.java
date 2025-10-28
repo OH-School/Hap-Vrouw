@@ -21,6 +21,7 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
 
     private Game game;
     private TimerDisplay timerDisplay;
+    private Time gameTime;
     private int x = 48;
     private int y = 45;
     private MuurTileMap muurTileMap;
@@ -55,9 +56,9 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
         addEntity(score);
         HealthText health = new HealthText(new Coordinate2D(100,5));
         addEntity(health);
-        timerDisplay = new TimerDisplay(new Coordinate2D(708, 5));
+        timerDisplay = new TimerDisplay(new Coordinate2D(708, 5), game);
         addEntity(timerDisplay);
-        HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(x * 9, y * 12), health, score);
+        HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(x * 9, y * 12 + 5), health, score);
         addEntity(hapVrouw);
     }
 
@@ -69,14 +70,14 @@ public class GameLevel extends DynamicScene implements TileMapContainer, EntityS
 
     @Override
     public void setupEntitySpawners() {
-        Time gameTime = new Time(timerDisplay, 200); // create a shared Time object
-        addTimer(gameTime); // add timer to the scene
         addEntitySpawner(new EffectTileSpawner(5000, x, y, muurTileMap, gameTime));
         addEntitySpawner(new DotsSpawner(0, x, y, muurTileMap));
     }
 
     @Override
     public void setupTimers() {
-        // Already added Time in setupEntitySpawners
+        gameTime = new Time(timerDisplay, 10); // create a shared Time object
+        addTimer(gameTime);
     }
+
 }

@@ -113,6 +113,7 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
         previousLocation = getAnchorLocation();
         if (superTimer != null && superTimer.getSeconden() <= 0) {
             isSuper = false;
+            superTimer.remove();
         }
         if (pressedKeys.contains(KeyCode.LEFT)) {
             setMotion(speed, controlsReversed ? 90d : 270d);

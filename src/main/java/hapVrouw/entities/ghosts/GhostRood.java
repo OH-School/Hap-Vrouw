@@ -2,7 +2,7 @@ package hapVrouw.entities.ghosts;
 
 import com.github.hanyaeger.api.Coordinate2D;
 
-public class GhostRood {
+public class GhostRood{
 
 
 //    public GhostRood(Coordinate2D initialLocation) {
