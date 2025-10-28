@@ -26,7 +26,7 @@ public class GameOverScene extends StaticScene {
         ScoreText score = new ScoreText(new Coordinate2D(getWidth() / 2, getHeight() / 3));
         score.setScoreText(ScoreText.getScore());
         addEntity(score);
-        Button startButton = new StartButton(new Coordinate2D(getWidth() / 2, getHeight() / 2), "Start", game);
+        Button startButton = new StartButton(new Coordinate2D(getWidth() / 2, getHeight() / 2), "Retry", game);
         addEntity(startButton);
         Button quitButton = new QuitButton(new Coordinate2D(getWidth() / 2, getHeight() / 2 + 100), "Quit", game);
         addEntity(quitButton);
