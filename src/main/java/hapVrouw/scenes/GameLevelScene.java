@@ -44,6 +44,7 @@ public class GameLevelScene extends DynamicScene implements TileMapContainer, En
         };
         addEntity(ghosts);
 <<<<<<< Updated upstream:src/main/java/hapVrouw/scenes/GameLevelScene.java
+<<<<<<< Updated upstream:src/main/java/hapVrouw/scenes/GameLevelScene.java
         var ghostss = new Ghosts(new Coordinate2D(getWidth()/2, getHeight()/2));
         addEntity(ghostss);
         var ghostsa = new Ghosts(new Coordinate2D(getWidth()/2, getHeight()/2));
@@ -54,6 +55,8 @@ public class GameLevelScene extends DynamicScene implements TileMapContainer, En
         addEntity(scoreText);
         HealthText health = new HealthText(new Coordinate2D(100,20));
 =======
+=======
+>>>>>>> Stashed changes:src/main/java/hapVrouw/scenes/GameLevel.java
 
         ScoreText score = new ScoreText(new Coordinate2D(404,5));
         addEntity(score);
@@ -63,7 +66,11 @@ public class GameLevelScene extends DynamicScene implements TileMapContainer, En
         timerDisplay = new TimerDisplay(new Coordinate2D(708, 20), game);
         addEntity(timerDisplay);
 <<<<<<< Updated upstream:src/main/java/hapVrouw/scenes/GameLevelScene.java
+<<<<<<< Updated upstream:src/main/java/hapVrouw/scenes/GameLevelScene.java
         HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(x * 9, y * 12 + 5), health, scoreText);
+=======
+        HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(x * 9, y * 12 + 5), health, score, ghosts);
+>>>>>>> Stashed changes:src/main/java/hapVrouw/scenes/GameLevel.java
 =======
         HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(x * 9, y * 12 + 5), health, score, ghosts);
 >>>>>>> Stashed changes:src/main/java/hapVrouw/scenes/GameLevel.java
@@ -85,7 +92,11 @@ public class GameLevelScene extends DynamicScene implements TileMapContainer, En
     @Override
     public void setupTimers() {
 <<<<<<< Updated upstream:src/main/java/hapVrouw/scenes/GameLevelScene.java
+<<<<<<< Updated upstream:src/main/java/hapVrouw/scenes/GameLevelScene.java
         gameTime = new Time(timerDisplay, 2); // create a shared Time object
+=======
+        gameTime = new Time(timerDisplay, 1000); // create a shared Time object
+>>>>>>> Stashed changes:src/main/java/hapVrouw/scenes/GameLevel.java
 =======
         gameTime = new Time(timerDisplay, 1000); // create a shared Time object
 >>>>>>> Stashed changes:src/main/java/hapVrouw/scenes/GameLevel.java
