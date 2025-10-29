@@ -26,5 +26,6 @@ public class TimerDisplay extends DynamicTextEntity {
         if (seconds <= 0) {
             game.setActiveScene(2);
         }
+
     }
 }

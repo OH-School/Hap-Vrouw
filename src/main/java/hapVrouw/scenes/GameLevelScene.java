@@ -4,8 +4,10 @@ package hapVrouw.scenes;
 import hapVrouw.Game;
 import hapVrouw.entities.dots.DotsSpawner;
 import hapVrouw.entities.effectTiles.EffectTileSpawner;
+import hapVrouw.entities.ghosts.GhostOranje;
 import hapVrouw.entities.ghosts.GhostSpawner;
-import hapVrouw.entities.ghosts.Ghosts;
+import hapVrouw.entities.ghosts.GhostPaars;
+import hapVrouw.entities.ghosts.GhostRood;
 import hapVrouw.entities.hapVrouw.HapVrouw;
 import hapVrouw.entities.text.*;
 import hapVrouw.entities.tileMap.MuurTileMap;
@@ -38,17 +40,16 @@ public class GameLevelScene extends DynamicScene implements TileMapContainer, En
 
     @Override
     public void setupEntities() {
-        
-        Ghosts ghosts = new Ghosts(new Coordinate2D(getWidth() / 2, getHeight() / 2), 2) {
-        };
-        addEntity(ghosts);
+        addEntity(new GhostOranje(new Coordinate2D(getWidth()/2, getHeight()/2)));
+        addEntity(new GhostRood(new Coordinate2D(getWidth()/2, getHeight()/2)));
+        addEntity(new GhostPaars(new Coordinate2D(getWidth()/2, getHeight()/2)));
         ScoreText scoreText = new ScoreText(new Coordinate2D(getWidth() / 2,20));
         addEntity(scoreText);
-        HealthText health = new HealthText(new Coordinate2D(100,20));
+        HealthText health = new HealthText(new Coordinate2D(100,20), game);
         addEntity(health);
         timerDisplay = new TimerDisplay(new Coordinate2D(708, 20), game);
         addEntity(timerDisplay);
-        HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(x * 9, y * 12 + 5), health, scoreText, ghosts);
+        HapVrouw hapVrouw = new HapVrouw(new Coordinate2D(x * 9, y * 12 + 5), health, scoreText);
         addEntity(hapVrouw);
     }
 
@@ -62,6 +63,7 @@ public class GameLevelScene extends DynamicScene implements TileMapContainer, En
     public void setupEntitySpawners() {
         addEntitySpawner(new EffectTileSpawner(5000, x, y, muurTileMap, gameTime));
         addEntitySpawner(new DotsSpawner(0, x, y, muurTileMap));
+        addEntitySpawner(new GhostSpawner(20000, getWidth()/2, getHeight()/2));
     }
 
     @Override

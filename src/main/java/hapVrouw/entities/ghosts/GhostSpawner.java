@@ -16,6 +16,8 @@ public class GhostSpawner extends EntitySpawner {
 
     @Override
     protected void spawnEntities() {
-        spawn(new Ghosts((new Coordinate2D(x, y)),0));
+        spawn(new GhostOranje(new Coordinate2D(x, y)));
+        spawn(new GhostRood(new Coordinate2D(x, y)));
+        spawn(new GhostPaars(new Coordinate2D(x, y)));
     }
 }

@@ -2,8 +2,10 @@ package hapVrouw.entities.hapVrouw;
 
 import com.github.hanyaeger.api.TimerContainer;
 import hapVrouw.entities.dots.dots.BigDot;
+import hapVrouw.entities.ghosts.GhostOranje;
 import hapVrouw.entities.ghosts.Ghosts;
-import hapVrouw.entities.ghosts.Sprites.GhostsSprite;
+import hapVrouw.entities.ghosts.GhostPaars;
+import hapVrouw.entities.ghosts.GhostRood;
 import hapVrouw.entities.text.HealthText;
 import hapVrouw.entities.text.ScoreText;
 import hapVrouw.entities.effectTiles.EffectTile;
@@ -28,7 +30,7 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
     private float standardSpeed = 3f;
     private float speed = standardSpeed;
     private Coordinate2D previousLocation;
-    private Coordinate2D initialLocation;
+    public Coordinate2D initialLocation;
     private HealthText healthText;
     private int heath = 3;
     private ScoreText scoreText;
@@ -36,10 +38,9 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
     private boolean controlsReversed = false;
     private boolean isSuper = false;
     private Time superTimer;
-    private Ghosts ghosts;
 
 
-    public HapVrouw(Coordinate2D initialLocation, HealthText healthText, ScoreText scoreText, Ghosts ghosts) {
+    public HapVrouw(Coordinate2D initialLocation, HealthText healthText, ScoreText scoreText) {
         super("sprites/hapvrouw/hapvrouw.png", initialLocation, new Size(28), 8, 5);
         this.healthText = healthText;
         healthText.setHealthText(heath);
@@ -47,7 +48,6 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
         scoreText.setScoreText(score);
         previousLocation = getAnchorLocation();
         this.initialLocation = initialLocation;
-        this.ghosts = ghosts;
     }
 
     @Override
@@ -69,20 +69,20 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
                 ((EffectTile) collider).action(this);
             }
 
-            if (collider instanceof GhostsSprite) {
+            if (collider instanceof Ghosts) {
                 System.out.println(" Ghost Hitbox");
-                System.out.println(ghosts.getRow());
+//                System.out.println(ghosts.getRow());
                 if (isSuper) {
-                    ghosts.superRemove();
-                }else {
-                    if (ghosts.getRow() == 0) {
-                        score = score - 100;
-                        scoreText.setScoreText(score);
-                        setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
+                    ((Ghosts) collider).superRemove();
+                    System.out.println(" Super Remove");
+                } else {
+                    if (collider instanceof GhostOranje) {
+                        ((Ghosts) collider).action(this, scoreText);
+                        System.out.println("action");
 
-                    } else if (ghosts.getRow() == 1) {
+                    } else if (collider instanceof GhostPaars) {
                         controlsReversed = !controlsReversed;
-                    } else if (ghosts.getRow() == 2) {
+                    } else if (collider instanceof GhostRood) {
                         heath--;
                         healthText.setHealthText(heath);
                         setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
@@ -91,6 +91,7 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
 
             }
         }
+
     }
 
 

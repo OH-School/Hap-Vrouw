@@ -1,26 +1,32 @@
 package hapVrouw.entities.ghosts;
 
 import com.github.hanyaeger.api.Coordinate2D;
+import com.github.hanyaeger.api.entities.Collided;
+import com.github.hanyaeger.api.entities.Collider;
 import com.github.hanyaeger.api.entities.DynamicCompositeEntity;
 import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import hapVrouw.entities.ghosts.Sprites.GhostsSprite;
+import hapVrouw.entities.hapVrouw.HapVrouw;
+import hapVrouw.entities.text.ScoreText;
 
 import java.util.Random;
 
-public class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossingWatcher {
+public abstract class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossingWatcher, Collider {
 
     private Random random = new Random();
     private int[] directions = {0, 90, 180, 270};
-    private static int row;
+    protected int row;
 
 
-    public Ghosts(Coordinate2D initialLocation, int row) {
+    public Ghosts(Coordinate2D initialLocation ) {
         super(initialLocation);
-        this.row = row;
+
         setSpeed(0.5);
         setDirection(90);
     }
+
+    public abstract void action(HapVrouw hapVrouw, ScoreText scoreText);
 
     @Override
     protected void setupEntities() {
@@ -45,9 +51,6 @@ public class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossin
         addEntity(hitboxOnder);
     }
 
-    public static int getRow(){
-        return row;
-    }
 
 
     public void handleWallCollision(Zijkanten zijkant) {
@@ -99,11 +102,10 @@ public class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossin
         }
     }
 
-    /**
-     * Zorgt er misschien voor dat alle ghosts removed zijn.
-     * */
     public void superRemove() {
         this.remove();
     }
+
+
 }
 
