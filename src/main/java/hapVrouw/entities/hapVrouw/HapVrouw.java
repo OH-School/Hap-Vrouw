@@ -34,7 +34,6 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
     private HealthText healthText;
     private int heath = 3;
     private ScoreText scoreText;
-    private int score = 0;
     private boolean controlsReversed = false;
     private boolean isSuper = false;
     private Time superTimer;
@@ -45,7 +44,6 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
         this.healthText = healthText;
         healthText.setHealthText(heath);
         this.scoreText = scoreText;
-        scoreText.setScoreText(score);
         previousLocation = getAnchorLocation();
         this.initialLocation = initialLocation;
     }
