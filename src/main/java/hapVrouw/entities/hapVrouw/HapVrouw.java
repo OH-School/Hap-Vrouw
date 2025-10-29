@@ -75,10 +75,8 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
                     ((Ghosts) collider).superRemove();
                     System.out.println(" Super Remove");
                 } else {
-
                     ((Ghosts) collider).action(this, scoreText, healthText);
                     System.out.println("action");
-
                 }
 
             }
