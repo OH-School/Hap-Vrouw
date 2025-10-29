@@ -8,6 +8,7 @@ import com.github.hanyaeger.api.entities.SceneBorderCrossingWatcher;
 import com.github.hanyaeger.api.scenes.SceneBorder;
 import hapVrouw.entities.ghosts.Sprites.GhostsSprite;
 import hapVrouw.entities.hapVrouw.HapVrouw;
+import hapVrouw.entities.text.HealthText;
 import hapVrouw.entities.text.ScoreText;
 
 import java.util.Random;
@@ -26,7 +27,7 @@ public abstract class Ghosts extends DynamicCompositeEntity implements SceneBord
         setDirection(90);
     }
 
-    public abstract void action(HapVrouw hapVrouw, ScoreText scoreText);
+    public abstract void action(HapVrouw hapVrouw, ScoreText scoreText, HealthText healthText);
 
     @Override
     protected void setupEntities() {

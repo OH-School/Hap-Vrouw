@@ -2,6 +2,7 @@ package hapVrouw.entities.ghosts;
 
 import com.github.hanyaeger.api.Coordinate2D;
 import hapVrouw.entities.hapVrouw.HapVrouw;
+import hapVrouw.entities.text.HealthText;
 import hapVrouw.entities.text.ScoreText;
 
 public class GhostRood extends Ghosts {
@@ -11,9 +12,9 @@ public class GhostRood extends Ghosts {
     }
 
     @Override
-    public void action(HapVrouw hapVrouw, ScoreText scoreText) {
-        hapVrouw.setPlayerSpeed((hapVrouw.getStandardSpeed()));
+    public void action(HapVrouw hapVrouw, ScoreText scoreText, HealthText healthText) {
+        healthText.setHealth(healthText.getHealth()-1);
+        healthText.setHealthText(healthText.getHealth());
         hapVrouw.setAnchorLocation(new Coordinate2D(hapVrouw.initialLocation.getX(), hapVrouw.initialLocation.getY()));
-        scoreText.setScoreText(scoreText.getScore() - 100);
     }
 }

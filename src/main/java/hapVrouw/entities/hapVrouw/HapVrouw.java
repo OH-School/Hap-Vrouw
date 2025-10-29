@@ -71,22 +71,14 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
 
             if (collider instanceof Ghosts) {
                 System.out.println(" Ghost Hitbox");
-//                System.out.println(ghosts.getRow());
                 if (isSuper) {
                     ((Ghosts) collider).superRemove();
                     System.out.println(" Super Remove");
                 } else {
-                    if (collider instanceof GhostOranje) {
-                        ((Ghosts) collider).action(this, scoreText);
-                        System.out.println("action");
 
-                    } else if (collider instanceof GhostPaars) {
-                        controlsReversed = !controlsReversed;
-                    } else if (collider instanceof GhostRood) {
-                        heath--;
-                        healthText.setHealthText(heath);
-                        setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
-                    }
+                    ((Ghosts) collider).action(this, scoreText, healthText);
+                    System.out.println("action");
+
                 }
 
             }
@@ -132,10 +124,13 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
         } else if (pressedKeys.contains(KeyCode.DOWN)) {
             setMotion(speed, controlsReversed ? 180d : 0d);
             setAutoCycle(120, isSuper ? 7 : 3);
-        }
-        else {
+        } else {
             setSpeed(0);
         }
+    }
+
+    public void setControlsReversed() {
+        this.controlsReversed = !controlsReversed;
     }
 
     public void setPlayerSpeed(float newSpeed) {
