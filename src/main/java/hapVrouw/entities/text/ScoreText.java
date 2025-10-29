@@ -13,6 +13,9 @@ public class ScoreText extends Text {
     }
 
     public void setScoreText(int score) {
+        if (score < 0) {
+            score = 0;
+        }
         ScoreText.score = score;
         setText("Score: " + score);
     }
