@@ -40,7 +40,7 @@ public class GameLevelScene extends DynamicScene implements TileMapContainer, En
     @Override
     public void setupEntities() {
         
-        Ghosts ghosts = new Ghosts(new Coordinate2D(getWidth() / 2, getHeight() / 2), 2) {
+        Ghosts ghosts = new Ghosts(new Coordinate2D(getWidth() / 2, getHeight() / 2), 0) {
         };
         addEntity(ghosts);
         ScoreText scoreText = new ScoreText(new Coordinate2D(getWidth() / 2,20));

@@ -74,20 +74,25 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
             }
 
             if (collider instanceof GhostsSprite) {
-                System.out.println(" Ghost Hitbox");
-                System.out.println(ghosts.getRow());
-                if (ghosts.getRow() == 0) {
-                    score = score - 100;
-                    scoreText.setScoreText(score);
-                    setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()) );
-
+                if (isSuper) {
+                    ghosts.superRemove();
                 }
-                else if (ghosts.getRow() == 1) {
-                    controlsReversed = !controlsReversed;
-                } else if (ghosts.getRow() == 2) {
-                    heath--;
-                    healthText.setHealthText(heath);
-                    setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
+                else {
+                    System.out.println(" Ghost Hitbox");
+                    System.out.println(ghosts.getRow());
+                    if (ghosts.getRow() == 0) {
+                        setPlayerSpeed(getStandardSpeed());
+                        setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
+                        scoreText.setScoreText(ScoreText.getScore() - 100);
+
+                    } else if (ghosts.getRow() == 1) {
+                        controlsReversed = !controlsReversed;
+                    } else if (ghosts.getRow() == 2) {
+                        setPlayerSpeed(getStandardSpeed());
+                        setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
+                        heath--;
+                        healthText.setHealthText(heath);
+                    }
                 }
 
             }

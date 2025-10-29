@@ -12,5 +12,4 @@ public class GhostsSprite extends DynamicSpriteEntity implements Collider {
         super(resource, initialLocation, new Size(35), 3, 5);
         setAutoCycle(100, row);
     }
-
 }

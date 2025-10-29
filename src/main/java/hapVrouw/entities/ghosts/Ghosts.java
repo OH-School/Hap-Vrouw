@@ -98,5 +98,12 @@ public class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossin
                 break;
         }
     }
+
+    /**
+     * Zorgt er misschien voor dat alle ghosts removed zijn.
+     * */
+    public void superRemove() {
+        this.remove();
+    }
 }
 
