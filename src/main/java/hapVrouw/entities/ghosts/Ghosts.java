@@ -51,7 +51,7 @@ public class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossin
 
 
     public void handleWallCollision(Zijkanten zijkant) {
-        double stepBackDistance = 5; // Pas aan naar wens
+        double stepBackDistance = 5;
 
         switch (zijkant) {
             case Boven:

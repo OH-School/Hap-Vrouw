@@ -6,11 +6,8 @@ import hapVrouw.scenes.TitleScene;
 import com.github.hanyaeger.api.Size;
 import com.github.hanyaeger.api.YaegerGame;
 
-/**
- * Hello world!
- *
- */
-//
+
+
 public class Game extends YaegerGame {
     public static void main( String[] args ) {
         launch(args);

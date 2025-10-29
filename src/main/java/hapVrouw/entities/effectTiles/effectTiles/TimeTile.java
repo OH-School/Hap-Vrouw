@@ -12,12 +12,12 @@ public class TimeTile extends EffectTile {
 
     public TimeTile(Coordinate2D initialPosition, Size size, Time time) {
         super("sprites/action/TimeTile.png", initialPosition, size);
-        this.gameTime = time; // correctly assign the time object
+        this.gameTime = time;
     }
 
     @Override
     public void action(HapVrouw hapVrouw) {
-        gameTime.setSeconden(gameTime.getSeconden() + 5); // add 5 seconds
+        gameTime.setSeconden(gameTime.getSeconden() + 5);
         remove();
     }
 }

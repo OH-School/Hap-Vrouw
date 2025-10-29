@@ -7,7 +7,6 @@ module Hap.Vrouw {
     exports hapVrouw;
     exports hapVrouw.entities.tileMap;
 
-    //opens audio;
     opens backgrounds;
     opens sprites.hapvrouw;
     opens sprites.action;

@@ -67,7 +67,7 @@ public class GameLevelScene extends DynamicScene implements TileMapContainer, En
 
     @Override
     public void setupTimers() {
-        gameTime = new Time(timerDisplay, 200); // create a shared Time object
+        gameTime = new Time(timerDisplay, 200);
         addTimer(gameTime);
     }
 }
