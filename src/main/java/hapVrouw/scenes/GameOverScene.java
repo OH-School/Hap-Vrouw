@@ -18,7 +18,7 @@ public class GameOverScene extends StaticScene {
 
     @Override
     public void setupScene() {
-        setBackgroundImage("backgrounds/background1.jpg");
+        setBackgroundImage("backgrounds/background2.jpg");
     }
 
     @Override
