@@ -6,7 +6,6 @@ import hapVrouw.Game;
 public class HealthText extends Text {
 
     private Game game;
-    private int health;
 
     public HealthText(Coordinate2D initialLocation, Game game) {
         super(initialLocation);
@@ -19,13 +18,4 @@ public class HealthText extends Text {
             game.setActiveScene(2);
         }
     }
-
-    public int getHealth(){
-        return health;
-    }
-
-    public void setHealth(int health){
-        this.health = health;
-    }
-
 }
