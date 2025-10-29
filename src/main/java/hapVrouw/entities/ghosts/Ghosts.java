@@ -12,7 +12,7 @@ public class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossin
 
     private Random random = new Random();
     private int[] directions = {0, 90, 180, 270};
-    private int row;
+    private static int row;
 
 
     public Ghosts(Coordinate2D initialLocation, int row) {
@@ -45,7 +45,7 @@ public class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossin
         addEntity(hitboxOnder);
     }
 
-    public int getRow(){
+    public static int getRow(){
         return row;
     }
 

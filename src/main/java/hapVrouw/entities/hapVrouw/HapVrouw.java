@@ -3,14 +3,10 @@ package hapVrouw.entities.hapVrouw;
 import com.github.hanyaeger.api.TimerContainer;
 import hapVrouw.entities.dots.dots.BigDot;
 import hapVrouw.entities.ghosts.Ghosts;
-import hapVrouw.entities.ghosts.Hitbox;
-import hapVrouw.entities.ghosts.Sprites.GhostPaarsSprite;
 import hapVrouw.entities.ghosts.Sprites.GhostsSprite;
 import hapVrouw.entities.text.HealthText;
 import hapVrouw.entities.text.ScoreText;
 import hapVrouw.entities.effectTiles.EffectTile;
-import hapVrouw.entities.ghosts.Sprites.GhostOranjeSprite;
-import hapVrouw.entities.ghosts.Sprites.GhostRoodSprite;
 import hapVrouw.entities.text.Time;
 import hapVrouw.entities.tileMap.Muur;
 import hapVrouw.entities.dots.Dots;
@@ -74,24 +70,22 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
             }
 
             if (collider instanceof GhostsSprite) {
+                System.out.println(" Ghost Hitbox");
+                System.out.println(ghosts.getRow());
                 if (isSuper) {
                     ghosts.superRemove();
-                }
-                else {
-                    System.out.println(" Ghost Hitbox");
-                    System.out.println(ghosts.getRow());
+                }else {
                     if (ghosts.getRow() == 0) {
-                        setPlayerSpeed(getStandardSpeed());
+                        score = score - 100;
+                        scoreText.setScoreText(score);
                         setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
-                        scoreText.setScoreText(ScoreText.getScore() - 100);
 
                     } else if (ghosts.getRow() == 1) {
                         controlsReversed = !controlsReversed;
                     } else if (ghosts.getRow() == 2) {
-                        setPlayerSpeed(getStandardSpeed());
-                        setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
                         heath--;
                         healthText.setHealthText(heath);
+                        setAnchorLocation(new Coordinate2D(initialLocation.getX(), initialLocation.getY()));
                     }
                 }
 

@@ -4,9 +4,8 @@ package hapVrouw.scenes;
 import hapVrouw.Game;
 import hapVrouw.entities.dots.DotsSpawner;
 import hapVrouw.entities.effectTiles.EffectTileSpawner;
+import hapVrouw.entities.ghosts.GhostSpawner;
 import hapVrouw.entities.ghosts.Ghosts;
-import hapVrouw.entities.ghosts.Sprites.GhostOranjeSprite;
-import hapVrouw.entities.ghosts.Sprites.GhostsSprite;
 import hapVrouw.entities.hapVrouw.HapVrouw;
 import hapVrouw.entities.text.*;
 import hapVrouw.entities.tileMap.MuurTileMap;
@@ -40,7 +39,7 @@ public class GameLevelScene extends DynamicScene implements TileMapContainer, En
     @Override
     public void setupEntities() {
         
-        Ghosts ghosts = new Ghosts(new Coordinate2D(getWidth() / 2, getHeight() / 2), 0) {
+        Ghosts ghosts = new Ghosts(new Coordinate2D(getWidth() / 2, getHeight() / 2), 2) {
         };
         addEntity(ghosts);
         ScoreText scoreText = new ScoreText(new Coordinate2D(getWidth() / 2,20));
@@ -67,7 +66,7 @@ public class GameLevelScene extends DynamicScene implements TileMapContainer, En
 
     @Override
     public void setupTimers() {
-        gameTime = new Time(timerDisplay, 200);
+        gameTime = new Time(timerDisplay, 200); // create a shared Time object
         addTimer(gameTime);
     }
 }
