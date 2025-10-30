@@ -13,7 +13,8 @@ public class GhostRood extends Ghosts {
 
     @Override
     public void action(HapVrouw hapVrouw, ScoreText scoreText, HealthText healthText) {
-        hapVrouw.setLife(hapVrouw.getLife()-1);
         hapVrouw.setAnchorLocation(new Coordinate2D(hapVrouw.initialLocation.getX(), hapVrouw.initialLocation.getY()));
+        hapVrouw.setPlayerSpeed((hapVrouw.getStandardSpeed()));
+        hapVrouw.setLife(hapVrouw.getLife()-1);
     }
 }

@@ -14,8 +14,8 @@ public class GhostOranje extends Ghosts {
 
     @Override
         public void action(HapVrouw hapVrouw, ScoreText scoreText, HealthText healthText) {
-            hapVrouw.setPlayerSpeed((hapVrouw.getStandardSpeed()));
             hapVrouw.setAnchorLocation(new Coordinate2D(hapVrouw.initialLocation.getX(), hapVrouw.initialLocation.getY()));
+            hapVrouw.setPlayerSpeed((hapVrouw.getStandardSpeed()));
             scoreText.setScoreText(ScoreText.getScore() - 100);
         }
 }
