@@ -5,7 +5,7 @@ import com.github.hanyaeger.api.Timer;
 public class Time extends Timer {
 
 
-    private TimerDisplay time;
+    private final TimerDisplay time;
     private int seconden;
     public Time(TimerDisplay timerDisplay, int seconden) {
         super(1000);

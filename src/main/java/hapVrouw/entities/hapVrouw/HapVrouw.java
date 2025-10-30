@@ -2,10 +2,7 @@ package hapVrouw.entities.hapVrouw;
 
 import com.github.hanyaeger.api.TimerContainer;
 import hapVrouw.entities.dots.dots.BigDot;
-import hapVrouw.entities.ghosts.GhostOranje;
 import hapVrouw.entities.ghosts.Ghosts;
-import hapVrouw.entities.ghosts.GhostPaars;
-import hapVrouw.entities.ghosts.GhostRood;
 import hapVrouw.entities.text.HealthText;
 import hapVrouw.entities.text.ScoreText;
 import hapVrouw.entities.effectTiles.EffectTile;
@@ -27,13 +24,13 @@ import java.util.Set;
 
 public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneBorderCrossingWatcher, Collided, TimerContainer {
 
-    private float standardSpeed = 3f;
+    private final float standardSpeed = 3f;
     private float speed = standardSpeed;
     private Coordinate2D previousLocation;
     public Coordinate2D initialLocation;
-    private HealthText healthText;
+    private final HealthText healthText;
     private int heath = 3;
-    private ScoreText scoreText;
+    private final ScoreText scoreText;
     private boolean controlsReversed = false;
     private boolean isSuper = false;
     private Time superTimer;
@@ -57,10 +54,7 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
                 break;
             }
             if (collider instanceof Dots) {
-                ((Dots) collider).addPoints(scoreText);
-                if (collider instanceof BigDot) {
-                    becomeSuper();
-                }
+                ((Dots) collider).dotAction(scoreText, this);
             }
 
             if (collider instanceof EffectTile) {
@@ -143,7 +137,7 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
         return this.standardSpeed;
     }
 
-    private void becomeSuper() {
+    public void becomeSuper() {
         isSuper = true;
         initTimers();
     }

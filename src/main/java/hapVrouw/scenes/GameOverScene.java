@@ -10,7 +10,7 @@ import hapVrouw.entities.text.ScoreText;
 
 public class GameOverScene extends StaticScene {
 
-    private Game game;
+    private final Game game;
 
     public GameOverScene(Game game) {
         this.game = game;

@@ -16,7 +16,7 @@ public class GhostOranje extends Ghosts {
         public void action(HapVrouw hapVrouw, ScoreText scoreText, HealthText healthText) {
             hapVrouw.setPlayerSpeed((hapVrouw.getStandardSpeed()));
             hapVrouw.setAnchorLocation(new Coordinate2D(hapVrouw.initialLocation.getX(), hapVrouw.initialLocation.getY()));
-            scoreText.setScoreText(scoreText.getScore() - 100);
+            scoreText.setScoreText(ScoreText.getScore() - 100);
         }
 }
 

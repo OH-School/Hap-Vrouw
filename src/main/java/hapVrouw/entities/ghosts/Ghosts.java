@@ -15,8 +15,8 @@ import java.util.Random;
 
 public abstract class Ghosts extends DynamicCompositeEntity implements SceneBorderCrossingWatcher, Collider {
 
-    private Random random = new Random();
-    private int[] directions = {0, 90, 180, 270};
+    private final Random random = new Random();
+    private final int[] directions = {0, 90, 180, 270};
     protected int row;
 
 

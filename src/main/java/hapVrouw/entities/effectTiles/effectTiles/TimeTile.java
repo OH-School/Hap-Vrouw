@@ -8,7 +8,7 @@ import com.github.hanyaeger.api.Size;
 
 public class TimeTile extends EffectTile {
 
-    private Time gameTime;
+    private final Time gameTime;
 
     public TimeTile(Coordinate2D initialPosition, Size size, Time time) {
         super("sprites/action/TimeTile.png", initialPosition, size);

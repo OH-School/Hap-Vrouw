@@ -11,8 +11,8 @@ import java.util.List;
 
 public class Hitbox extends RectangleEntity implements Collided, Collider{
 
-    private Zijkanten zijkanten;
-    private Ghosts parentGhost;
+    private final Zijkanten zijkanten;
+    private final Ghosts parentGhost;
 
     public Hitbox(final Coordinate2D initialPosition, int Width, int Height, Zijkanten zijkanten, Ghosts parentGhost) {
         super(initialPosition);

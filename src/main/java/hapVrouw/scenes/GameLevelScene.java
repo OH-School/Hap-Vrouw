@@ -22,11 +22,11 @@ import javafx.scene.paint.Color;
 
 public class GameLevelScene extends DynamicScene implements TileMapContainer, EntitySpawnerContainer, TimerContainer {
 
-    private Game game;
+    private final Game game;
     private TimerDisplay timerDisplay;
     private Time gameTime;
-    private int x = 48;
-    private int y = 45;
+    private final int x = 48;
+    private final int y = 45;
     private MuurTileMap muurTileMap;
 
     public GameLevelScene(Game game) {

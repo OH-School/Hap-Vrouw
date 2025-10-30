@@ -5,7 +5,7 @@ import hapVrouw.Game;
 
 public class HealthText extends Text {
 
-    private Game game;
+    private final Game game;
 
     public HealthText(Coordinate2D initialLocation, Game game) {
         super(initialLocation);

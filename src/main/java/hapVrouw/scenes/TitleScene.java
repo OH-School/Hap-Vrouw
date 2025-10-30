@@ -9,7 +9,7 @@ import com.github.hanyaeger.api.scenes.StaticScene;
 
 public class TitleScene extends StaticScene {
 
-    private Game game;
+    private final Game game;
 
     public TitleScene(Game game) {
         this.game = game;

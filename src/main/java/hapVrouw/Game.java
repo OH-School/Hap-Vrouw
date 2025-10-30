@@ -13,7 +13,7 @@ public class Game extends YaegerGame {
         launch(args);
     }
 
-    private int window = 3;
+    private final int window = 3;
 
     @Override
     public void setupGame() {

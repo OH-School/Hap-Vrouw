@@ -1,5 +1,6 @@
 package hapVrouw.entities.dots;
 
+import hapVrouw.entities.hapVrouw.HapVrouw;
 import hapVrouw.entities.text.ScoreText;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
@@ -16,5 +17,5 @@ public abstract class Dots extends SpriteEntity implements Collider{
         nDots++;
     }
 
-    public abstract void addPoints(ScoreText scoreText);
+    public abstract void dotAction(ScoreText scoreText, HapVrouw hapVrouw);
 }

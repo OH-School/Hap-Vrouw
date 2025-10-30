@@ -1,6 +1,7 @@
 package hapVrouw.entities.dots.dots;
 
 import hapVrouw.entities.dots.Dots;
+import hapVrouw.entities.hapVrouw.HapVrouw;
 import hapVrouw.entities.text.ScoreText;
 import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.Size;
@@ -11,9 +12,10 @@ public class BigDot extends Dots {
     }
 
     @Override
-    public void addPoints(ScoreText scoreText) {
-        scoreText.setScoreText(scoreText.getScore() + 50);
+    public void dotAction(ScoreText scoreText, HapVrouw hapVrouw) {
+        scoreText.setScoreText(ScoreText.getScore() + 50);
         nDots--;
+        hapVrouw.becomeSuper();
         this.remove();
     }
 }

@@ -4,8 +4,8 @@ import com.github.hanyaeger.api.Coordinate2D;
 import com.github.hanyaeger.api.entities.EntitySpawner;
 
 public class GhostSpawner extends EntitySpawner {
-    private double x;
-    private double y;
+    private final double x;
+    private final double y;
 
 
     public GhostSpawner(long intervalInMs, double x, double y) {
