@@ -12,7 +12,7 @@ public class SpeedTile extends EffectTile {
     }
 
     @Override
-    public void action(HapVrouw hapVrouw) {
+    public void tileAction(HapVrouw hapVrouw) {
         hapVrouw.setPlayerSpeed(hapVrouw.getStandardSpeed() * 1.3f);
         remove();
     }

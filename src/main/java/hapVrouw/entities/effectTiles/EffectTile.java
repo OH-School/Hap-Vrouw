@@ -30,5 +30,5 @@ public abstract class EffectTile extends SpriteEntity implements Collider {
         timer.schedule(Task, 5000);
     }
 
-    public abstract void action(HapVrouw hapVrouw);
+    public abstract void tileAction(HapVrouw hapVrouw);
 }

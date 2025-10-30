@@ -12,7 +12,7 @@ public class HeartTile extends EffectTile {
     }
 
     @Override
-    public void action(HapVrouw hapVrouw) {
+    public void tileAction(HapVrouw hapVrouw) {
         hapVrouw.setLife(hapVrouw.getLife() + 1);
         remove();
     }

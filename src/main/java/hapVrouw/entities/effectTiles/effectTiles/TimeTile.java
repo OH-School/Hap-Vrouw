@@ -16,7 +16,7 @@ public class TimeTile extends EffectTile {
     }
 
     @Override
-    public void action(HapVrouw hapVrouw) {
+    public void tileAction(HapVrouw hapVrouw) {
         gameTime.setSeconden(gameTime.getSeconden() + 5);
         remove();
     }

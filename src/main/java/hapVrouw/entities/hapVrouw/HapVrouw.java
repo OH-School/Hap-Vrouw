@@ -1,7 +1,6 @@
 package hapVrouw.entities.hapVrouw;
 
 import com.github.hanyaeger.api.TimerContainer;
-import hapVrouw.entities.dots.dots.BigDot;
 import hapVrouw.entities.ghosts.Ghosts;
 import hapVrouw.entities.text.HealthText;
 import hapVrouw.entities.text.ScoreText;
@@ -58,7 +57,7 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
             }
 
             if (collider instanceof EffectTile) {
-                ((EffectTile) collider).action(this);
+                ((EffectTile) collider).tileAction(this);
             }
 
             if (collider instanceof Ghosts) {
