@@ -68,13 +68,10 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
             }
 
             if (collider instanceof Ghosts) {
-                System.out.println(" Ghost Hitbox");
                 if (isSuper) {
                     ((Ghosts) collider).superRemove();
-                    System.out.println(" Super Remove");
                 } else {
                     ((Ghosts) collider).action(this, scoreText, healthText);
-                    System.out.println("action");
                 }
 
             }
@@ -131,7 +128,6 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
 
     public void setPlayerSpeed(float newSpeed) {
         this.speed = newSpeed;
-        System.out.println(speed);
     }
 
     public void setLife(int health) {
@@ -159,6 +155,5 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
             superTimer = new Time(5);
             addTimer(superTimer);
         }
-        System.out.println(getTimers());
     }
 }

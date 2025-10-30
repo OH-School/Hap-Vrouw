@@ -14,7 +14,6 @@ public abstract class Dots extends SpriteEntity implements Collider{
     public Dots(String resource, Coordinate2D initialPosition, Size size) {
         super(resource, initialPosition, size);
         nDots++;
-        System.out.println("new Dot " + nDots);
     }
 
     public abstract void addPoints(ScoreText scoreText);

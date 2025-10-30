@@ -21,7 +21,6 @@ public class Time extends Timer {
 
     @Override
     public void onAnimationUpdate(long l) {
-        System.out.println(seconden);
         seconden--;
         if (time != null) {
         time.updateTimer(seconden);

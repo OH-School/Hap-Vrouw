@@ -18,7 +18,6 @@ public class DotsSpawner extends EntitySpawner {
         this.tileWidth = tileWidth;
         this.tileHeight = tileHeight;
         this.mapData = muurTileMap.defineMap();
-        System.out.println("new DotsSpawner");
     }
 
     @Override
@@ -34,7 +33,6 @@ public class DotsSpawner extends EntitySpawner {
                         }
                         else {
                             spawn(new SmallDot(new Coordinate2D(x, y), new Size(16 * 3)));
-                            System.out.println((x + " " + y));
                         }
 
                     }
