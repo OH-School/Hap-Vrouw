@@ -40,6 +40,7 @@ public class HapVrouw extends DynamicSpriteEntity implements KeyListener, SceneB
         this.healthText = healthText;
         healthText.setHealthText(heath);
         this.scoreText = scoreText;
+        scoreText.setScoreText(0);
         previousLocation = getAnchorLocation();
         this.initialLocation = initialLocation;
     }
